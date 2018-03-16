@@ -7,7 +7,7 @@
             <span class="v-btn" @click="showProducts">Men's wristwatch</span>
           </div>
           <div class="view-culomn-col">
-            <span class="v-btn">Men's wristwatch</span>
+            <span class="v-btn" @click="showPromotion">Men's wristwatch</span>
           </div>
         </div>
         <div class="view-culomn-item item-right">
@@ -99,6 +99,11 @@ export default {
     showProducts() {
       this.$router.push({
         path: '/products',
+      });
+    },
+    showPromotion() {
+      this.$router.push({
+        path: '/promotion',
       });
     },
   },

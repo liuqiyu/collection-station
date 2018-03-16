@@ -4,8 +4,7 @@ import Router from 'vue-router';
 const Layout = r => require.ensure([], () => r(require('@/views/layout/index')), 'layout');
 const Home = r => require.ensure([], () => r(require('@/views/home/index')), 'Home');
 const Products = r => require.ensure([], () => r(require('@/views/products/index')), 'Products');
-const Page1 = r => require.ensure([], () => r(require('@/views/page1/index')), 'page1');
-const Page2 = r => require.ensure([], () => r(require('@/views/page2/index')), 'page2');
+const Promotion = r => require.ensure([], () => r(require('@/views/promotion/index')), 'Promotion');
 
 Vue.use(Router);
 
@@ -15,6 +14,11 @@ export default new Router({
       path: '/',
       component: Layout,
       children: [
+        {
+          path: '',
+          component: Home,
+          redirect: 'home',
+        },
         {
           path: 'home',
           name: 'home',
@@ -26,14 +30,9 @@ export default new Router({
           component: Products,
         },
         {
-          path: 'page1',
-          name: 'page1',
-          component: Page1,
-        },
-        {
-          path: 'page2',
-          name: 'page2',
-          component: Page2,
+          path: 'promotion',
+          name: 'promotion',
+          component: Promotion,
         },
       ]
     },

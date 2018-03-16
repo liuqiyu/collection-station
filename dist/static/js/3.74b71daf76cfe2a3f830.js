@@ -1,1 +1,0 @@
-webpackJsonp([3],{"+gJ3":function(e,t){},"9gQO":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement;return(this._self._c||e)("div",[this._v("page1")])},staticRenderFns:[]};var a=n("VU/8")({},r,!1,function(e){n("+gJ3")},"data-v-8a1b3680",null);t.default=a.exports}});
