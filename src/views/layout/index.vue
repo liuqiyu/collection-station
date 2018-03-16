@@ -2,12 +2,12 @@
   <div id="layout">
     <topbar></topbar>
     <div class="wrapper-scroll" style="height: 100%">
-      <div>
+      <div id="aaa">
         <router-view></router-view>
       </div>
     </div>
-    <div class="chat iconfont icon-chat"></div>
-    <div class="toTop iconfont icon-top"></div>
+    <div class="chat iconfont icon-chat" ref="chat"></div>
+    <div class="toTop iconfont icon-top" ref="toTop" @click="toTop"></div>
   </div>
 </template>
 
@@ -16,13 +16,30 @@ import BScroll from 'better-scroll';
 import { Group, Cell } from 'vux';
 import topbar from './../../components/topbar';
 
+
 export default {
   mounted() {
     const wrapper = document.querySelector('.wrapper-scroll');
-    /* eslint-disable no-new */
-    new BScroll(wrapper, {
+    this.scroll = new BScroll(wrapper, {
       click: true,
+      scrollY: true,
+      probeType: 3,
     });
+    this.scroll.on('scroll', () => {
+      // 下拉动作
+      if (Math.abs(this.scroll.y) > Number(wrapper.clientHeight)) {
+        this.$refs.chat.classList.add('show');
+        this.$refs.toTop.classList.add('show');
+      } else {
+        this.$refs.chat.classList.remove('show');
+        this.$refs.toTop.classList.remove('show');
+      }
+    });
+  },
+  data() {
+    return {
+      scroll: null,
+    };
   },
   components: {
     topbar,
@@ -42,6 +59,9 @@ export default {
           break;
       }
     },
+    toTop() {
+      this.scroll.scrollTo(0, 0, 500);
+    },
   },
 };
 </script>
@@ -54,7 +74,7 @@ export default {
   }
 
   .chat {
-    display: block;
+    display: none;
     position: fixed;
     left: 0.13rem;
     bottom: 0.13rem;
@@ -69,7 +89,7 @@ export default {
   }
 
   .toTop {
-    display: block;
+    display: none;
     position: fixed;
     right: 0.13rem;
     bottom: 0.13rem;
