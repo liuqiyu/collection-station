@@ -19,11 +19,9 @@ router.beforeEach((to, from, next) => {
   next();
 });
 router.afterEach(() => {
-  setTimeout(() => {
-    store.commit('UPDATELOADINGSTATUS', {
-      isLoading: false,
-    });
-  }, 200);
+  store.commit('UPDATELOADINGSTATUS', {
+    isLoading: false,
+  });
 });
 
 

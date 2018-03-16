@@ -44,3 +44,7 @@ html, body {
 .show {
   display: block !important;
 }
+
+.bgWhite {
+  background: #fff !important;
+}

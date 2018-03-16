@@ -1,8 +1,21 @@
 <template>
   <div id="layout">
     <topbar></topbar>
+    <search
+      style="position: absolute; z-index: 999"
+        v-if="this.$store.state.main.showSearch"
+        @result-click="resultClick"
+        @on-change="getResult"
+        :results="results"
+        v-model="value"
+        position="absolute"
+        auto-scroll-to-top top="0.52rem"
+        @on-focus="onFocus"
+        @on-cancel="onCancel"
+        @on-submit="onSubmit"
+        ref="search"></search>
     <div class="wrapper-scroll" style="height: 100%">
-      <div id="aaa">
+      <div>
         <router-view></router-view>
       </div>
     </div>
@@ -12,10 +25,10 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 import BScroll from 'better-scroll';
-import { Group, Cell } from 'vux';
+import { Search } from 'vux';
 import topbar from './../../components/topbar';
-
 
 export default {
   mounted() {
@@ -27,7 +40,7 @@ export default {
     });
     this.scroll.on('scroll', () => {
       // 下拉动作
-      if (Math.abs(this.scroll.y) > Number(wrapper.clientHeight)) {
+      if (Math.abs(this.scroll.y) > Number(wrapper.clientHeight) / 2) {
         this.$refs.chat.classList.add('show');
         this.$refs.toTop.classList.add('show');
       } else {
@@ -39,14 +52,18 @@ export default {
   data() {
     return {
       scroll: null,
+      results: [],
+      value: '',
     };
   },
   components: {
     topbar,
-    Group,
-    Cell,
+    Search,
   },
   methods: {
+    ...mapMutations([
+      'SHOWSEARCH',
+    ]),
     change(lang) {
       switch (lang) {
         case 'ch':
@@ -62,8 +79,43 @@ export default {
     toTop() {
       this.scroll.scrollTo(0, 0, 500);
     },
+    setFocus() {
+      this.$refs.search.setFocus();
+    },
+    resultClick(item) {
+      alert('点击选择');
+    },
+    getResult(val) {
+      console.log('on-change', val);
+      this.results = val ? getResult(this.value) : [];
+    },
+    onSubmit() {
+      this.$refs.search.setBlur();
+      this.$vux.toast.show({
+        type: 'text',
+        position: 'top',
+        text: 'on submit'
+      });
+    },
+    onFocus() {
+      console.log('on focus');
+    },
+    onCancel() {
+      this.SHOWSEARCH(false);
+    },
   },
 };
+
+function getResult (val) {
+  let rs = [];
+  for (let i = 0; i < 20; i++) {
+    rs.push({
+      title: `${val} result: ${i + 1} `,
+      other: i,
+    });
+  }
+  return rs;
+}
 </script>
 
 <style scoped>
@@ -72,7 +124,6 @@ export default {
     height: 100%;
     padding-top: 0.52rem;
   }
-
   .chat {
     display: none;
     position: fixed;
