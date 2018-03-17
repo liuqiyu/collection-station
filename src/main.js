@@ -7,6 +7,7 @@ import store from './store';
 import i18n from './common/i18n';
 import './utils/rem';
 import './assets/css/reset.css';
+import './assets/css/base.css';
 import './assets/fonts/iconfont.css';
 
 /**

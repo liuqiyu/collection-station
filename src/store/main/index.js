@@ -4,11 +4,11 @@
  */
 import mutations from './mutations';
 
-const state =  {
+const state = {
   showSearch: false,
 };
 
 export default {
   state,
   mutations,
-}
+};

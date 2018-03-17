@@ -4,6 +4,7 @@
       <flexbox-item :span="2/7">
         <div class="top-item top-left">
           <span class="top-menu iconfont icon-iconfontcaidan"></span>
+          <!--<span class="top-menu go-back iconfont icon-fanhui"></span>-->
         </div>
       </flexbox-item>
       <flexbox-item :span="3/7">
@@ -38,7 +39,6 @@ export default {
       'SHOWSEARCH',
     ]),
     search() {
-      console.log(this.$store.state.main.showSearch);
       if (this.$store.state.main.showSearch) {
         this.SHOWSEARCH(false);
       } else {
@@ -75,6 +75,13 @@ export default {
     height: 0.52rem;
     font-size: 0.32rem;
     color: #fff;
+    line-height: 0.52rem;
+  }
+
+  .go-back {
+    color: #000;
+    font-size: 0.22rem;
+    font-weight: bold;
   }
 
   .top-center {

@@ -30,6 +30,17 @@ import BScroll from 'better-scroll';
 import { Search } from 'vux';
 import topbar from './../../components/topbar';
 
+function getResult(val) {
+  const rs = [];
+  for (let i = 0; i < 2; i += 1) {
+    rs.push({
+      title: `${val} result: ${i + 1} `,
+      other: i,
+    });
+  }
+  return rs;
+}
+
 export default {
   mounted() {
     const wrapper = document.querySelector('.wrapper-scroll');
@@ -82,11 +93,11 @@ export default {
     setFocus() {
       this.$refs.search.setFocus();
     },
-    resultClick(item) {
-      alert('点击选择');
+    resultClick() {
+      // alert('点击选择');
     },
     getResult(val) {
-      console.log('on-change', val);
+      // console.log('on-change', val);
       this.results = val ? getResult(this.value) : [];
     },
     onSubmit() {
@@ -94,28 +105,17 @@ export default {
       this.$vux.toast.show({
         type: 'text',
         position: 'top',
-        text: 'on submit'
+        text: 'on submit',
       });
     },
     onFocus() {
-      console.log('on focus');
+      // console.log('on focus');
     },
     onCancel() {
       this.SHOWSEARCH(false);
     },
   },
 };
-
-function getResult (val) {
-  let rs = [];
-  for (let i = 0; i < 20; i++) {
-    rs.push({
-      title: `${val} result: ${i + 1} `,
-      other: i,
-    });
-  }
-  return rs;
-}
 </script>
 
 <style scoped>

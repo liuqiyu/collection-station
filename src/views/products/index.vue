@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #f4f3f3">
+  <div class="silver">
     <div class="title">全部商品</div>
     <div class="pro-list" ref="proList">
       <flexbox :gutter="0" wrap="wrap">
