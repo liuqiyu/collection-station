@@ -5,3 +5,38 @@
   line-height: 24px !important;
 }
 
+
+.weui-progress__inner-bar, .weui-progress__bar {
+  height: 6px !important;
+  border-radius: 5px !important;
+}
+
+.weui-progress__inner-bar {
+  background: #ff9a9b !important;
+}
+
+
+.vux-number-selector-plus, .vux-number-selector-sub {
+  padding: 0.02rem !important;
+}
+
+.vux-number-selector svg {
+  fill: #333 !important;
+}
+
+.vux-number-input {
+  height: 0.25rem !important;
+  font-size: 0.12rem !important;
+}
+
+.vux-number-selector {
+  height: 0.25rem !important;
+}
+
+.vux-number-selector-sub {
+  border-radius: 4px 0 0 4px !important;
+}
+
+.vux-number-selector-plus {
+  border-radius: 0 4px 4px 0 !important;
+}

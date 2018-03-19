@@ -2,7 +2,7 @@
   <div>
     <div class="h-view">
       <div class="view-img">
-        <img src="./images/mian-bg.png" alt="">
+        <img src="./images/mian-bg.jpg" alt="">
       </div>
       <div class="view-culomn">
         <div class="view-culomn-item item-left">
@@ -154,7 +154,7 @@
       </swiper>
     </div>
     <div class="h-preview">
-      <img src="./images/preview.png" alt="">
+      <img src="./images/preview.jpg" alt="">
     </div>
     <div class="h-grid">
       <header class="g-header">

@@ -1,6 +1,7 @@
 .h-view {
   width: 100%;
-  /*height: 6.4rem;*/
+  height: 6.25rem;
+  overflow: hidden;
   position: relative;
 }
 

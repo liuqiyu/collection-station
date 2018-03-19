@@ -1,0 +1,137 @@
+/**
+ 大屏
+  */
+.slide {
+  width: 100%;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.slide > img{
+  width: 100%;
+}
+/**
+倒计时
+ */
+.cloker {
+  width: 100%;
+  height: 0.39rem;
+  background: #fff;
+  padding-top: 0.1rem;
+  padding-right: 0.1rem;
+  text-align: right;
+  font-size: 0.12rem;
+}
+
+.cloker .label {
+  color: #000;
+}
+
+.day {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  padding: 0 0.03rem;
+  border-radius: 3px;
+  font-size: 0.12rem;
+}
+
+/**
+促销产品列表
+ */
+.promo-list {
+  width: 100%;
+}
+
+.promo-item {
+  width: 100%;
+  height: 1.37rem;
+  border-top: 1px solid #eaeaea;
+  background: #fff;
+  padding: 0.1rem 0.15rem;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.promo-item .pro-img {
+  width: 0.8rem;
+}
+
+.promo-item .pro-img > img {
+  height: 100%;
+}
+
+.pro-desc {
+  margin-left: 0.2rem;
+  padding: 0.03rem 0;
+}
+
+.pro-desc .label {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 0.30rem;
+  margin-bottom: 0.1rem;
+}
+
+.pro-desc .new-price {
+  font-size: 0.14rem;
+  color: #f70308;
+  font-weight: bold;
+}
+
+.pro-desc .new-price .rate {
+  font-size: 0.1rem;
+  background: #f70308;
+  color: #fff;
+  padding: 0.01rem 0.04rem;
+  margin-left: 0.03rem;
+}
+
+.pro-desc .old-pricer {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.pro-desc .bottom {
+  margin-top: 0.08rem;
+}
+
+.pro-desc .bottom .stock {
+  width: 1.4rem;
+  float: left;
+  margin-right: 0.1rem;
+}
+
+.pro-desc .bottom .stock .progress {
+  margin-top: 0.04rem;
+}
+
+.pro-desc .bottom .btn {
+  float: left;
+  width: 0.9rem;
+  height: 0.25rem;
+  line-height: 0.25rem;
+  text-align: center;
+  background: #bc0200;
+  color: #fff;
+}

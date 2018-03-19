@@ -9,6 +9,7 @@ const Brand = r => require.ensure([], () => r(require('@/views/brand/index')), '
 const BuySuccess = r => require.ensure([], () => r(require('@/views/buySuccess/index')), 'BuySuccess');
 const OrderDetails = r => require.ensure([], () => r(require('@/views/orderDetails/index')), 'OrderDetails');
 const Cart = r => require.ensure([], () => r(require('@/views/cart/index')), 'Cart');
+const Details = r => require.ensure([], () => r(require('@/views/details/index')), 'Details');
 
 Vue.use(Router);
 
@@ -52,6 +53,11 @@ export default new Router({
           path: 'cart',
           name: 'cart',
           component: Cart,
+        },
+        {
+          path: 'details',
+          name: 'details',
+          component: Details,
         },
       ]
     },
