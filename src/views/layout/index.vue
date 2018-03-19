@@ -46,6 +46,7 @@ function getResult(val) {
 export default {
   mounted() {
     const wrapper = document.querySelector('.wrapper-scroll');
+    const body = document.querySelector('body');
     this.scroll = new BScroll(wrapper, {
       click: true,
       scrollY: true,

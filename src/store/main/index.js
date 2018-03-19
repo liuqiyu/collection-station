@@ -6,6 +6,7 @@ import mutations from './mutations';
 
 const state = {
   showSearch: false,
+  menuStatus: false,
 };
 
 export default {

@@ -3,13 +3,13 @@
     <flexbox :gutter="0">
       <flexbox-item :span="2/7">
         <div class="top-item top-left">
-          <span class="top-menu iconfont icon-iconfontcaidan"></span>
+          <span @click.stop="MENUSTATUS" class="top-menu iconfont icon-iconfontcaidan"></span>
           <!--<span class="top-menu go-back iconfont icon-fanhui"></span>-->
         </div>
       </flexbox-item>
       <flexbox-item :span="3/7">
         <div class="top-item top-center">
-          CLOCKWISE
+          <router-link class="title" to="/home">CLOCKWISE</router-link>
         </div>
       </flexbox-item>
       <flexbox-item :span="2/7">
@@ -37,6 +37,7 @@ export default {
   methods: {
     ...mapMutations([
       'SHOWSEARCH',
+      'MENUSTATUS',
     ]),
     search() {
       if (this.$store.state.main.showSearch) {
@@ -90,6 +91,10 @@ export default {
     line-height: 0.58rem;
     font-size: 0.18rem;
     font-family: 'main-title';
+  }
+
+  .top-center .title {
+    color: #fff;
   }
 
   .top-right {
