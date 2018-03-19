@@ -115,7 +115,7 @@ export default {
   }
 
   .show-order {
-    border-color: #000;
+    border-color: #000 !important;
     background: #000;
     color: #fff !important;
   }

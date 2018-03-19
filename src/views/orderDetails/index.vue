@@ -60,13 +60,15 @@
           </div>
         </div>
       </section>
-      <div class="baby-btn" v-if="!showAll">
-        <span class="icon iconfont icon-xiangxiajiantou"></span>
-        <span>更多</span>
-      </div>
-      <div class="baby-btn" v-else>
-        <span class="icon iconfont icon-xiangshang_jiantou"></span>
-        <span>关闭</span>
+      <div class="baby-btn-wrap">
+        <div class="baby-btn" v-if="!showAll">
+          <span class="icon iconfont icon-xiangxiajiantou"></span>
+          <span>更多</span>
+        </div>
+        <div class="baby-btn" v-else>
+          <span class="icon iconfont icon-xiangshang_jiantou"></span>
+          <span>关闭</span>
+        </div>
       </div>
     </div>
     <div class="baby-number">

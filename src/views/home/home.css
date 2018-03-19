@@ -53,6 +53,8 @@
   line-height: 0.28rem;
   color: #010000;
   margin: 0 0.12rem;
+  font-weight: bold;
+  font-family: 'item';
 }
 
 @keyframes leftAnimation
