@@ -1,6 +1,9 @@
 <template>
   <div>
     <div class="h-view">
+      <div class="view-img">
+        <img src="./images/mian-bg.png" alt="">
+      </div>
       <div class="view-culomn">
         <div class="view-culomn-item item-left">
           <div class="view-culomn-col">
@@ -20,80 +23,244 @@
         </div>
       </div>
     </div>
+    <div class="h-sale">
+      <img src="./images/sale.png" alt="">
+    </div>
+    <div class="h-show-all">
+      <img src="./images/showall.png" alt="">
+    </div>
     <div class="h-swipe">
-      <swiper auto height="1.56rem" dots-position="center">
+      <swiper auto dots-position="center" height="2.7rem">
         <swiper-item class="black">
           <flexbox :gutter="11">
-            <flexbox-item><div class="flex-demo">1</div></flexbox-item>
-            <flexbox-item><div class="flex-demo">2</div></flexbox-item>
-            <flexbox-item><div class="flex-demo">3</div></flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
           </flexbox>
         </swiper-item>
         <swiper-item class="black">
           <flexbox :gutter="11">
-            <flexbox-item><div class="flex-demo">4</div></flexbox-item>
-            <flexbox-item><div class="flex-demo">5</div></flexbox-item>
-            <flexbox-item><div class="flex-demo">6</div></flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
           </flexbox>
         </swiper-item>
         <swiper-item class="black">
           <flexbox :gutter="11">
-            <flexbox-item><div class="flex-demo">7</div></flexbox-item>
-            <flexbox-item><div class="flex-demo">8</div></flexbox-item>
-            <flexbox-item><div class="flex-demo">9</div></flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="flex-demo">
+                <div class="flex-demo-img">
+                  <img src="./images/sample.png" alt="">
+                </div>
+                <div class="flex-demo-desc">
+                  <div class="flex-demo-name">ABCD</div>
+                  <div class="flex-demo-describe">Design is b</div>
+                  <div class="flex-demo-price">$999</div>
+                </div>
+              </div>
+            </flexbox-item>
           </flexbox>
         </swiper-item>
       </swiper>
     </div>
-    <div class="h-preview"></div>
+    <div class="h-preview">
+      <img src="./images/preview.png" alt="">
+    </div>
     <div class="h-grid">
-      <header class="g-header">FEATURED RECOMMENDATIONS</header>
+      <header class="g-header">
+        <img src="./images/title.png" alt="">
+      </header>
       <section>
         <flexbox :gutter="0" wrap="wrap">
           <flexbox-item :span="1/2">
             <div class="gird-item p-left">
-              <div class="gird-item-cell"></div>
+              <div class="gird-item-cell clearfix">
+                <div class="cell-left">
+                  <div class="cell-p">
+                    <span class="name">ABCD</span>
+                    <span class="price">$999</span>
+                  </div>
+                  <div class="cell-rate">
+                    <rater v-model="data4" :font-size="12" :margin="1" disabled></rater>
+                  </div>
+                </div>
+                <div class="cell-right">
+                  <img src="./images/item.png" alt="">
+                </div>
+              </div>
             </div>
           </flexbox-item>
           <flexbox-item :span="1/2">
             <div class="gird-item p-right">
-              <div class="gird-item-cell"></div>
+              <div class="gird-item-cell clearfix">
+                <div class="cell-left">
+                  <div class="cell-p">
+                    <span class="name">ABCD</span>
+                    <span class="price">$999</span>
+                  </div>
+                  <div class="cell-rate">
+                    <rater v-model="data4" :font-size="12" :margin="1" disabled></rater>
+                  </div>
+                </div>
+                <div class="cell-right">
+                  <img src="./images/item.png" alt="">
+                </div>
+              </div>
             </div>
           </flexbox-item>
           <flexbox-item :span="1/2">
             <div class="gird-item p-left">
-              <div class="gird-item-cell"></div>
+              <div class="gird-item-cell clearfix">
+                <div class="cell-left">
+                  <div class="cell-p">
+                    <span class="name">ABCD</span>
+                    <span class="price">$999</span>
+                  </div>
+                  <div class="cell-rate">
+                    <rater v-model="data4" :font-size="12" :margin="1" disabled></rater>
+                  </div>
+                </div>
+                <div class="cell-right">
+                  <img src="./images/item.png" alt="">
+                </div>
+              </div>
             </div>
           </flexbox-item>
           <flexbox-item :span="1/2">
             <div class="gird-item p-right">
-              <div class="gird-item-cell"></div>
+              <div class="gird-item-cell clearfix">
+                <div class="cell-left">
+                  <div class="cell-p">
+                    <span class="name">ABCD</span>
+                    <span class="price">$999</span>
+                  </div>
+                  <div class="cell-rate">
+                    <rater v-model="data4" :font-size="12" :margin="1" disabled></rater>
+                  </div>
+                </div>
+                <div class="cell-right">
+                  <img src="./images/item.png" alt="">
+                </div>
+              </div>
             </div>
           </flexbox-item>
         </flexbox>
       </section>
     </div>
     <div class="h-section">
-      <div class="sec-cell"></div>
-      <div class="sec-cell"></div>
-      <div class="sec-cell"></div>
-      <div class="sec-cell"></div>
+      <img src="./images/section.png" alt="">
     </div>
     <footbar></footbar>
   </div>
 </template>
 
 <script>
-import { Swiper, SwiperItem, Flexbox, FlexboxItem } from 'vux';
+import { Swiper, SwiperItem, Flexbox, FlexboxItem, Rater } from 'vux';
 import footbar from './../../components/footbar';
 
 export default {
+  data() {
+    return {
+      data4: 4,
+    };
+  },
   components: {
     Swiper,
     SwiperItem,
     Flexbox,
     FlexboxItem,
     footbar,
+    Rater,
   },
   methods: {
     showProducts() {

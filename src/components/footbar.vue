@@ -14,7 +14,9 @@ export default {
     height: 0.55rem;
     width: 100%;
     text-align: center;
-    line-height: 0.55rem;
+    line-height: 0.6rem;
     background: #fff;
+    font-family: 'main-title';
+    font-size: 0.16rem;
   }
 </style>

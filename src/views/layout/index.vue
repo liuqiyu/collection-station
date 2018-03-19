@@ -1,5 +1,6 @@
 <template>
   <div id="layout">
+    <cmenu></cmenu>
     <topbar></topbar>
     <search
       style="position: absolute; z-index: 999"
@@ -29,6 +30,7 @@ import { mapMutations } from 'vuex';
 import BScroll from 'better-scroll';
 import { Search } from 'vux';
 import topbar from './../../components/topbar';
+import cmenu from '../../components/cmenu';
 
 function getResult(val) {
   const rs = [];
@@ -70,6 +72,7 @@ export default {
   components: {
     topbar,
     Search,
+    cmenu,
   },
   methods: {
     ...mapMutations([

@@ -1,8 +1,17 @@
 .h-view {
   width: 100%;
-  height: 6.4rem;
+  /*height: 6.4rem;*/
   background: pink;
   position: relative;
+}
+
+.view-img {
+  width: 100%;
+}
+
+.view-img > img {
+  width: 100%;
+  vertical-align: top;
 }
 
 .view-culomn {
@@ -82,14 +91,65 @@
 }
 
 .flex-demo {
-  height: 100%;
-  background: red;
-  height: 1.56rem;
+  width: 100%;
+  /*background: red;*/
+  /*height: 1.56rem;*/
 }
 
+.flex-demo .flex-demo-img {
+  width: 100%;
+}
+
+.flex-demo .flex-demo-img > img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.flex-demo-desc {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin-top: 0.1rem;
+}
+
+.flex-demo-desc .flex-demo-name {
+  font-size: 0.14rem;
+  font-weight: bold;
+  margin-bottom: 0.05rem;
+}
+
+.flex-demo-desc .flex-demo-describe, .flex-demo-desc .flex-demo-price {
+  margin-bottom: 0.05rem;
+}
+
+
 .h-preview {
-  height: 4.3rem;
-  background: aqua;
+  /*height: 4.3rem;*/
+  /*background: aqua;*/
+}
+
+.h-preview img {
+  width: 100%;
+}
+
+  /** h-sale **/
+
+.h-sale {
+  padding: 0.16rem 0.16rem 0 0.16rem;
+}
+
+.h-sale img {
+  width: 100%;
+}
+
+/** h-show-all **/
+
+.h-show-all {
+  padding: 0.16rem 0.16rem 0 0.16rem;
+}
+
+.h-show-all img {
+  width: 100%;
 }
 
 /** h-grid **/
@@ -102,6 +162,11 @@
   height: 0.49rem;
   text-align: center;
   line-height: 0.49rem;
+}
+
+.g-header > img {
+  width: 100%;
+  vertical-align: middle;
 }
 
 .gird-item {
@@ -118,16 +183,52 @@
 
 .gird-item-cell {
   height: 0.92rem;
+  padding: 0.06rem;
   background: rgba(0,0,0,.05);
 }
 
-/**
-  h-section
- */
-
-.sec-cell {
-  width: 100%;
-  height: 1.14rem;
-  background: #000;
-  border-bottom: 2px solid #161616;
+.gird-item-cell .cell-left {
+  float: left;
+  width: 0.8rem;
+  padding-top: 0.18rem;
+  margin-right: 0.05rem;
 }
+
+.gird-item-cell .cell-left .cell-p .name {
+  font-size: 0.14rem;
+  margin-right: 0.05rem;
+}
+
+.gird-item-cell .cell-left .cell-rate {
+  margin-top: 0.05rem;
+  text-align: left;
+
+}
+
+.gird-item-cell .cell-right {
+  float: left;
+  width: 0.73rem;
+  height: 0.73rem;
+}
+
+.gird-item-cell .cell-right > img {
+  width: 100%;
+  vertical-align: top;
+}
+
+  /**
+    h-section
+   */
+.h-section {
+  width: 100%;
+}
+
+.h-section img {
+  width: 100%;
+}
+/*.sec-cell {*/
+  /*width: 100%;*/
+  /*height: 1.14rem;*/
+  /*background: #000;*/
+  /*border-bottom: 2px solid #161616;*/
+/*}*/

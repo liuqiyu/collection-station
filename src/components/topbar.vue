@@ -87,7 +87,7 @@ export default {
   .top-center {
     text-align: center;
     color: #fff;
-    line-height: 0.55rem;
+    line-height: 0.58rem;
     font-size: 0.18rem;
     font-family: 'main-title';
   }
