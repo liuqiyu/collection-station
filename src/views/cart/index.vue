@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="a-pro">
+      <div class="a-pro" :style="bg">
         <span class="btn" @click="addProducts">继续添加商品</span>
       </div>
     </div>
@@ -108,6 +108,9 @@ export default {
       ],
       height: 0,
       index: null,
+      bg: {
+        backgroundImage: 'url(' + require('./images/bg.png') + ')',
+      },
     };
   },
   mounted() {
@@ -235,7 +238,6 @@ export default {
     overflow: hidden;
     height: 0.58rem;
     padding-top: 0.1rem;
-    background: url("./images/bg.png");
   }
 
   .a-pro .btn {
