@@ -32,7 +32,9 @@
           <div class="bottom clearfix">
             <div class="stock">
               <p>196剩余库存</p>
-              <p class="progress"> <x-progress :percent="percent2" :show-cancel="false"></x-progress></p>
+              <p class="progress">
+                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
+              </p>
             </div>
             <div class="btn">点击抢购</div>
           </div>
@@ -52,7 +54,9 @@
           <div class="bottom clearfix">
             <div class="stock">
               <p>196剩余库存</p>
-              <p class="progress"> <x-progress :percent="percent2" :show-cancel="false"></x-progress></p>
+              <p class="progress">
+                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
+              </p>
             </div>
             <div class="btn">点击抢购</div>
           </div>
@@ -72,7 +76,9 @@
           <div class="bottom clearfix">
             <div class="stock">
               <p>196剩余库存</p>
-              <p class="progress"> <x-progress :percent="percent2" :show-cancel="false"></x-progress></p>
+              <p class="progress">
+                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
+              </p>
             </div>
             <div class="btn">点击抢购</div>
           </div>
@@ -92,7 +98,9 @@
           <div class="bottom clearfix">
             <div class="stock">
               <p>196剩余库存</p>
-              <p class="progress"> <x-progress :percent="percent2" :show-cancel="false"></x-progress></p>
+              <p class="progress">
+                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
+              </p>
             </div>
             <div class="btn">点击抢购</div>
           </div>

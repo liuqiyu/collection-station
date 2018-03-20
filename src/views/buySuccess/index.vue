@@ -47,10 +47,10 @@ export default {
   },
   methods: {
     customerServer() {
-      alert('客服服务');
+      // alert('客服服务');
     },
     showOrder() {
-      alert('查看订单');
+      // alert('查看订单');
     },
   },
 };

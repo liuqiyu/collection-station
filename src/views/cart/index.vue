@@ -1,73 +1,124 @@
 <template>
-  <div class="cart">
-    <div class="cart-list">
-      <div class="cart-item">
-        <div class="cart-img">
-          <img src="./images/pro.jpg" alt="">
-        </div>
-        <div class="cart-desc">
-          <div class="label">CLASSIC SUFFOLK</div>
-          <div class="price">1 X 1999</div>
-          <div class="other">
-            <div class="spec">4MM</div>
-            <div class="num">
-              <x-number :value="10" width="40px" fillable></x-number>
-            </div>
+  <div class="cart" :style="{height: height + 'px'}">
+    <div class="cart-list-wrap">
+      <div class="cart-list">
+        <div class="cart-item" v-for="(item, index) in cartList" :key="index">
+          <div class="cart-img">
+            <img src="./images/pro.jpg" alt="">
           </div>
-          <span class="delete iconfont icon-huishouzhan"></span>
+          <div class="cart-desc">
+            <div class="label">{{item.label}}</div>
+            <div class="price">{{item.number}} X {{item.price}}</div>
+            <div class="other">
+              <div class="spec">{{item.spec}}</div>
+              <div class="num">
+                <x-number :value="item.number" :min="1" width="40px" fillable></x-number>
+              </div>
+            </div>
+            <span class="delete iconfont icon-shanchudelete30" @click="recovery(item, index)"></span>
+          </div>
         </div>
       </div>
-      <div class="cart-item">
-        <div class="cart-img">
-          <img src="./images/pro.jpg" alt="">
-        </div>
-        <div class="cart-desc">
-          <div class="label">CLASSIC SUFFOLK</div>
-          <div class="price">1 X 1999</div>
-          <div class="other">
-            <div class="spec">4MM</div>
-            <div class="num">
-              <x-number :value="10" width="40px" fillable></x-number>
-            </div>
-          </div>
-          <span class="delete iconfont icon-huishouzhan"></span>
-        </div>
-      </div>
-      <div class="cart-item">
-        <div class="cart-img">
-          <img src="./images/pro.jpg" alt="">
-        </div>
-        <div class="cart-desc">
-          <div class="label">CLASSIC SUFFOLK</div>
-          <div class="price">1 X 1999</div>
-          <div class="other">
-            <div class="spec">4MM</div>
-            <div class="num">
-              <x-number :value="10" width="40px" fillable></x-number>
-            </div>
-          </div>
-          <span class="delete iconfont icon-huishouzhan"></span>
-        </div>
+      <div class="a-pro">
+        <span class="btn" @click="click">继续添加商品</span>
       </div>
     </div>
-    <div class="a-pro">
-      <span class="btn">继续添加商品</span>
+    <div class="cart-bottom">
+      <div class="cart-data">
+        <div class="data-item">
+          <span class="label">数量</span>
+          <span class="value">1</span>
+        </div>
+        <div class="data-item">
+          <span class="label">折扣</span>
+          <span class="value">-$149</span>
+        </div>
+        <div class="data-item">
+          <span class="label">含税</span>
+          <span class="value">$195</span>
+        </div>
+        <div class="data-item">
+          <span class="label">累计</span>
+          <span class="value">$1369</span>
+        </div>
+      </div>
+      <div class="cart-btn">
+        <span>前往结账</span>
+      </div>
     </div>
+    <confirm v-model="show"
+             title="确认删除？"
+             @on-cancel="onCancel"
+             @on-confirm="onConfirm">
+    </confirm>
   </div>
 </template>
 
 <script>
-import { XNumber, Group } from 'vux';
+import BScroll from 'better-scroll';
+import { XNumber, Group, Confirm, XButton } from 'vux';
+import { getHeight } from './../../utils/height'
 
 export default {
   components: {
     XNumber,
     Group,
+    Confirm,
+    XButton,
+  },
+  data() {
+    return {
+      show: false,
+      cartList: [
+        {
+          label: 'CLASSIC SUFFOLK1',
+          number: 1,
+          spec: '4MM',
+          price: '1999',
+        },
+        {
+          label: 'CLASSIC SUFFOLK2',
+          number: 1,
+          spec: '4MM',
+          price: '1999',
+        },
+      ],
+      height: 0,
+      index: null,
+    };
+  },
+  mounted() {
+    const wrapper = document.querySelector('.cart');
+    this.scroll = new BScroll(wrapper);
+    this.height = getHeight(['.c-topbar']);
+  },
+  methods: {
+    click() {
+      console.log(this.cartList);
+    },
+    recovery(item, index) {
+      this.index = index;
+      this.show = true;
+    },
+    onCancel() {
+      console.log('on cancel');
+    },
+    onConfirm() {
+      this.cartList.splice(this.index, 1);
+    },
   },
 };
 </script>
 
 <style scoped>
+  .cart {
+    height: 100%;
+  }
+
+  .cart-list-wrap {
+    padding-bottom: 1.6rem;
+  }
+
   .cart-item {
     width: 100%;
     padding: 0.1rem 0.04rem 0.06rem 0.14rem;
@@ -167,5 +218,50 @@ export default {
     text-align: center;
     line-height: 0.35rem;
     border: 2px solid #000;
+  }
+
+  .cart-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  .cart-data {
+    border-bottom: 1px solid #eee;
+    background: rgba(255,255,255,0.9);
+  }
+
+  .data-item {
+    padding: 0 0.24rem;
+    margin-bottom: 0.07rem;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    overflow: hidden;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .cart-btn {
+    background: #fff;
+    padding: 0.1rem 0;
+  }
+
+  .cart-btn span {
+    margin: 0 auto;
+    display: block;
+    background: #000f21;
+    color: #9f9650;
+    width: 2.65rem;
+    height: 0.41rem;
+    text-align: center;
+    line-height: 0.41rem;
   }
 </style>

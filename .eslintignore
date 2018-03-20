@@ -2,6 +2,6 @@
 /config/
 /dist/
 /*.js
-/src/utils/rem.js
+/src/utils/*.js
 /src/router/*
 /src/common/

@@ -40,3 +40,15 @@
 .vux-number-selector-plus {
   border-radius: 0 4px 4px 0 !important;
 }
+
+/**
+ dialog
+ */
+
+.weui-dialog__title {
+  font-size: 0.16rem !important;
+}
+
+.weui-dialog__btn {
+  font-size: 0.16rem !important;
+}
