@@ -52,3 +52,26 @@
 .weui-dialog__btn {
   font-size: 0.16rem !important;
 }
+
+/**
+  form
+ */
+
+.weui-label {
+  font-size: 0.13rem !important;
+}
+
+.weui-input {
+  font-size: 0.13rem !important;
+}
+
+.weui-cells__title {
+  text-align: center;
+  font-size: 0.16rem;
+  padding: 0.1rem 0;
+}
+
+.red-color .weui-cell__ft {
+  color: #fb5050;
+  opacity: 0.8;
+}

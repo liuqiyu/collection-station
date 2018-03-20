@@ -15,15 +15,15 @@
             <span class="label">全部商品</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
-          <div @click="link('/home')" class="shop-cell">
+          <div @click="link('/products', 'intelligence')" class="shop-cell">
             <span class="label">智能系列</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
-          <div @click="link('/home')" class="shop-cell">
+          <div @click="link('/products', 'male')" class="shop-cell">
             <span class="label">男款</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
-          <div @click="link('/home')" class="shop-cell">
+          <div @click="link('/products', 'female')" class="shop-cell">
             <span class="label">女款</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
@@ -70,11 +70,20 @@ export default {
       e.preventDefault();
       e.stopPropagation();
     },
-    link(path) {
+    link(path, type) {
       this.MENUSTATUS();
-      this.$router.push({
-        path,
-      });
+      if (type) {
+        this.$router.push({
+          path,
+          query: {
+            type,
+          },
+        });
+      } else {
+        this.$router.push({
+          path,
+        });
+      }
     },
   },
 };

@@ -25,47 +25,49 @@
     <div class="baby-details">
       <header>宝贝详情</header>
       <section>
-        <div class="baby-item">
+        <div class="baby-item"
+             v-for="(item, index) in cartList" v-if="index === 1" :key="index">
           <div class="left">
             <div class="logo">
-              <img src="" alt="">
+              <img src="./images/products.jpg" alt="">
             </div>
           </div>
           <div class="row">
             <section class="cell">
-              <span>casio限量版手表</span>
-              <span>x 1</span>
+              <span class="label">{{item.label}}</span>
+              <span class="number">{{item.number}}</span>
             </section>
             <section class="cell">
-              <span>颜色表带</span>
-              <span>$1999</span>
+              <span class="spec">{{item.spec}}</span>
+              <span class="price">{{item.price}}</span>
             </section>
           </div>
         </div>
-        <div class="baby-item">
+        <div class="baby-item"
+             v-for="(item, index) in cartList" v-if="index > 1" v-show="showAll" :key="index">
           <div class="left">
             <div class="logo">
-              <img src="" alt="">
+              <img src="./images/products.jpg" alt="">
             </div>
           </div>
           <div class="row">
             <section class="cell">
-              <span>casio限量版手表</span>
-              <span>x 1</span>
+              <span class="label">{{item.label}}</span>
+              <span class="number">{{item.number}}</span>
             </section>
             <section class="cell">
-              <span>颜色表带</span>
-              <span>$1999</span>
+              <span class="spec">{{item.spec}}</span>
+              <span class="price">{{item.price}}</span>
             </section>
           </div>
         </div>
       </section>
-      <div class="baby-btn-wrap">
-        <div class="baby-btn" v-if="!showAll">
+      <div class="baby-btn-wrap" v-if="cartList.length > 1">
+        <div class="baby-btn" v-if="!showAll" @click="showList">
           <span class="icon iconfont icon-xiangxiajiantou"></span>
           <span>更多</span>
         </div>
-        <div class="baby-btn" v-else>
+        <div class="baby-btn" v-else @click="showList">
           <span class="icon iconfont icon-xiangshang_jiantou"></span>
           <span>关闭</span>
         </div>
@@ -107,7 +109,42 @@ export default {
     return {
       title: '查看详情',
       showAll: false,
+      cartList: [
+        {
+          label: 'casio限量版手表casio限量版手表casio限量版手表casio限量版手表',
+          number: '1',
+          spec: '颜色表带',
+          price: '$1234',
+        },
+        {
+          label: 'casio限量版手表casio限量版手表casio限量版手表casio限量版手表',
+          number: '1',
+          spec: '颜色表带',
+          price: '$1234',
+        },
+        {
+          label: 'casio限量版手表casio限量版手表casio限量版手表casio限量版手表',
+          number: '1',
+          spec: '颜色表带',
+          price: '$1234',
+        },
+        {
+          label: 'casio限量版手表casio限量版手表casio限量版手表casio限量版手表',
+          number: '1',
+          spec: '颜色表带',
+          price: '$1234',
+        },
+      ],
     };
+  },
+  methods: {
+    showList() {
+      if (this.showAll) {
+        this.showAll = false;
+      } else {
+        this.showAll = true;
+      }
+    },
   },
 };
 </script>
@@ -195,7 +232,13 @@ export default {
   .baby-item .left .logo {
     width: 0.82rem;
     height: 0.82rem;
-    background: red;
+    border: 1px solid #eee;
+    overflow: hidden;
+  }
+
+  .baby-item .left .logo > img {
+    width: 100%;
+    vertical-align: top;
   }
 
   .baby-item .row {
@@ -217,6 +260,23 @@ export default {
     -ms-flex-pack: justify;
     justify-content: space-between;
     overflow: hidden;
+    margin-bottom: 0.1rem;
+  }
+
+  .baby-item .row .cell .number {
+    width: 1rem;
+    display: block;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .baby-item .row .cell .spec {
+    color: #666;
+  }
+
+  .baby-item .row .cell .price {
+    font-size: 0.12rem;
+    font-weight: bold;
   }
 
   .baby-btn {

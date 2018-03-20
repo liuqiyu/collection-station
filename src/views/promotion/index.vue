@@ -18,91 +18,25 @@
       </clocker>
     </div>
     <div class="promo-list">
-      <div class="promo-item">
+      <div class="promo-item" v-for="(item, index) in salesList" :key="index">
         <div class="pro-img">
           <img src="./images/sale-pro.jpg" alt="">
         </div>
         <div class="pro-desc">
-          <div class="label">男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表</div>
+          <div class="label">{{item.label}}</div>
           <div class="new-price">
-            <span>89.96 SAR</span>
-            <span class="rate">-%43</span>
+            <span>{{item.price}} SAR</span>
+            <span class="rate">{{item.rate}}</span>
           </div>
-          <div class="old-pricer">157.46</div>
+          <div class="old-pricer">{{item.oldPrice}}</div>
           <div class="bottom clearfix">
             <div class="stock">
-              <p>196剩余库存</p>
+              <p>{{item.stock}}剩余库存</p>
               <p class="progress">
-                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
+                <x-progress :percent="item.percent" :show-cancel="false"></x-progress>
               </p>
             </div>
-            <div class="btn">点击抢购</div>
-          </div>
-        </div>
-      </div>
-      <div class="promo-item">
-        <div class="pro-img">
-          <img src="./images/sale-pro.jpg" alt="">
-        </div>
-        <div class="pro-desc">
-          <div class="label">男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表</div>
-          <div class="new-price">
-            <span>89.96 SAR</span>
-            <span class="rate">-%43</span>
-          </div>
-          <div class="old-pricer">157.46</div>
-          <div class="bottom clearfix">
-            <div class="stock">
-              <p>196剩余库存</p>
-              <p class="progress">
-                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
-              </p>
-            </div>
-            <div class="btn">点击抢购</div>
-          </div>
-        </div>
-      </div>
-      <div class="promo-item">
-        <div class="pro-img">
-          <img src="./images/sale-pro.jpg" alt="">
-        </div>
-        <div class="pro-desc">
-          <div class="label">男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表</div>
-          <div class="new-price">
-            <span>89.96 SAR</span>
-            <span class="rate">-%43</span>
-          </div>
-          <div class="old-pricer">157.46</div>
-          <div class="bottom clearfix">
-            <div class="stock">
-              <p>196剩余库存</p>
-              <p class="progress">
-                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
-              </p>
-            </div>
-            <div class="btn">点击抢购</div>
-          </div>
-        </div>
-      </div>
-      <div class="promo-item">
-        <div class="pro-img">
-          <img src="./images/sale-pro.jpg" alt="">
-        </div>
-        <div class="pro-desc">
-          <div class="label">男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表</div>
-          <div class="new-price">
-            <span>89.96 SAR</span>
-            <span class="rate">-%43</span>
-          </div>
-          <div class="old-pricer">157.46</div>
-          <div class="bottom clearfix">
-            <div class="stock">
-              <p>196剩余库存</p>
-              <p class="progress">
-                <x-progress :percent="percent2" :show-cancel="false"></x-progress>
-              </p>
-            </div>
-            <div class="btn">点击抢购</div>
+            <div class="btn" @click="panicBuying(item)">点击抢购</div>
           </div>
         </div>
       </div>
@@ -123,14 +57,62 @@ export default {
   },
   data() {
     return {
-      percent2: 60,
       time1: '2018-07-13 21:54',
+      salesList: [
+        {
+          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
+          price: '89.98',
+          rate: '-43%',
+          oldPrice: '157.46',
+          stock: '256',
+          percent: 60,
+        },
+        {
+          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
+          price: '89.98',
+          rate: '-43%',
+          oldPrice: '157.46',
+          stock: '256',
+          percent: 60,
+        },
+        {
+          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
+          price: '89.98',
+          rate: '-43%',
+          oldPrice: '157.46',
+          stock: '256',
+          percent: 60,
+        },
+        {
+          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
+          price: '89.98',
+          rate: '-43%',
+          oldPrice: '157.46',
+          stock: '256',
+          percent: 60,
+        },
+        {
+          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
+          price: '89.98',
+          rate: '-43%',
+          oldPrice: '157.46',
+          stock: '256',
+          percent: 60,
+        },
+      ],
     };
   },
   created() {
     setTimeout(() => {
       this.time1 = '2018-08-13 22:54';
     }, 5000);
+  },
+  methods: {
+    panicBuying() {
+      this.$router.push({
+        path: '/address',
+      });
+    },
   },
 };
 </script>

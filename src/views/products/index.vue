@@ -1,6 +1,6 @@
 <template>
   <div class="silver">
-    <div class="title">全部商品</div>
+    <div class="title">{{title}}</div>
     <div class="pro-list" ref="proList">
       <flexbox :gutter="0" wrap="wrap">
         <flexbox-item :span="1/2" v-for="(item, index) in proList" :key="index">
@@ -13,7 +13,7 @@
               <p class="price">$1999</p>
             </div>
             <div class="btn">
-              <span>加入购物车</span>
+              <span @click="addCart(item)">加入购物车</span>
             </div>
           </div>
         </flexbox-item>
@@ -36,18 +36,54 @@ export default {
   data() {
     return {
       proList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      title: null,
+      type: null,
     };
   },
+  watch: {
+    '$route'() {
+      this.checkType();
+    },
+  },
   mounted() {
+    this.checkType();
     this.getData();
   },
   methods: {
+    checkType() {
+      if (this.$route.query.type === undefined) {
+        this.type = 'all';
+      } else {
+        this.type = this.$route.query.type;
+      }
+      switch (this.type) {
+        case 'all':
+          this.title = '全部商品';
+          break;
+        case 'intelligence':
+          this.title = '智能系列';
+          break;
+        case 'male':
+          this.title = '男款';
+          break;
+        case 'female':
+          this.title = '女款';
+          break;
+        default:
+          break;
+      }
+    },
     getData() {
       if (this.proList.length % 2 === 0) {
         this.$refs.proList.classList.add('is-even');
       } else {
         this.$refs.proList.classList.remove('is-even');
       }
+    },
+    addCart() {
+      this.$router.push({
+        path: '/cart',
+      });
     },
   },
 };

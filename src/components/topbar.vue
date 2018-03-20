@@ -15,7 +15,7 @@
       <flexbox-item :span="2/7">
         <div class="top-item top-right">
           <div class="search iconfont icon-sousuo" @click="search"></div>
-          <div class="shop-cart iconfont icon-gouwuche"></div>
+          <div class="shop-cart iconfont icon-gouwuche" @click="toCart"></div>
         </div>
       </flexbox-item>
     </flexbox>
@@ -45,6 +45,11 @@ export default {
       } else {
         this.SHOWSEARCH(true);
       }
+    },
+    toCart() {
+      this.$router.push({
+        path: '/cart',
+      });
     },
   },
 };

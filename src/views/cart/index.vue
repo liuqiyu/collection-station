@@ -15,12 +15,10 @@
                 <x-number :value="item.number" :min="1" width="40px" fillable></x-number>
               </div>
             </div>
-            <span class="delete iconfont icon-shanchudelete30" @click="recovery(item, index)"></span>
+            <span class="delete iconfont icon-shanchudelete30" @click="recovery(item, index)">
+            </span>
           </div>
         </div>
-      </div>
-      <div class="a-pro">
-        <span class="btn" @click="click">继续添加商品</span>
       </div>
     </div>
     <div class="cart-bottom">
@@ -43,12 +41,11 @@
         </div>
       </div>
       <div class="cart-btn">
-        <span>前往结账</span>
+        <span @click="checkout">前往结账</span>
       </div>
     </div>
     <confirm v-model="show"
              title="确认删除？"
-             @on-cancel="onCancel"
              @on-confirm="onConfirm">
     </confirm>
   </div>
@@ -56,15 +53,14 @@
 
 <script>
 import BScroll from 'better-scroll';
-import { XNumber, Group, Confirm, XButton } from 'vux';
-import { getHeight } from './../../utils/height'
+import { XNumber, Group, Confirm } from 'vux';
+import { getHeight } from './../../utils/height';
 
 export default {
   components: {
     XNumber,
     Group,
     Confirm,
-    XButton,
   },
   data() {
     return {
@@ -117,18 +113,22 @@ export default {
     this.height = getHeight(['.c-topbar']);
   },
   methods: {
-    click() {
-      console.log(this.cartList);
+    addProducts() {
+      this.$router.push({
+        path: '/products',
+      });
     },
     recovery(item, index) {
       this.index = index;
       this.show = true;
     },
-    onCancel() {
-      console.log('on cancel');
-    },
     onConfirm() {
       this.cartList.splice(this.index, 1);
+    },
+    checkout() {
+      this.$router.push({
+        path: '/address',
+      });
     },
   },
 };
@@ -181,7 +181,8 @@ export default {
   .cart-desc {
     position: relative;
     width: 100%;
-    padding-left: 0.4rem;
+    /*padding-left: 0.4rem;*/
+    padding: 0.05rem 0 0.05rem 0.4rem;
   }
 
   .cart-desc .delete {
@@ -197,12 +198,12 @@ export default {
 
   .cart-desc .label {
     width: 100%;
-    font-size: 0.14rem;
+    font-size: 0.12rem;
     margin-bottom: 0.1rem;
   }
 
   .cart-desc .price {
-    font-size: 0.13rem;
+    font-size: 0.12rem;
   }
 
   .cart-desc .other {
@@ -223,7 +224,7 @@ export default {
   }
 
   .cart-desc .other .spec {
-    font-size: 0.13rem;
+    font-size: 0.12rem;
   }
 
   .a-pro {

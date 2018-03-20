@@ -1,31 +1,33 @@
 <template>
   <div class="buy-success">
     <miniHeaher :title="title"></miniHeaher>
-    <div class="prompt">
-      <span class="icon iconfont icon-ERP_xiadan"></span>
-      <span class="text">下单成功!</span>
-    </div>
-    <div class="price">
-      合计：
-      <span class="number">$1099</span>
-    </div>
-    <div class="hint">
-      <p>恭喜，成功提交订单。</p>
-      <p>我们已收到您的订单，您的头发将尽快发送给宝宝。</p>
-    </div>
-    <div class="btn-group">
-      <flexbox :gutter="10">
-        <flexbox-item>
-          <div class="btn customer-server" @click="customerServer">客服服务</div>
-        </flexbox-item>
-        <flexbox-item>
-          <div class="btn show-order" @click="showOrder">查看订单</div>
-        </flexbox-item>
-      </flexbox>
-    </div>
-    <div class="line"></div>
-    <div class="bottom-prompt">
-      提示：我们已收到您的订单，您的头发将尽快发送给宝宝。我们已收到您的订单，您的头发将尽快发送给宝宝。我们已收到您的订单，您的头发将尽快发送给宝宝。
+    <div class="buy-success-box">
+      <div class="prompt">
+        <span class="icon iconfont icon-ERP_xiadan"></span>
+        <span class="text">下单成功!</span>
+      </div>
+      <div class="price">
+        合计：
+        <span class="number">$1099</span>
+      </div>
+      <div class="hint">
+        <p>恭喜，成功提交订单。</p>
+        <p>我们已收到您的订单，您的头发将尽快发送给宝宝。</p>
+      </div>
+      <div class="btn-group">
+        <flexbox :gutter="10">
+          <flexbox-item>
+            <div class="btn customer-server" @click="customerServer">客服服务</div>
+          </flexbox-item>
+          <flexbox-item>
+            <div class="btn show-order" @click="showOrder">查看订单</div>
+          </flexbox-item>
+        </flexbox>
+      </div>
+      <div class="line"></div>
+      <div class="bottom-prompt">
+        提示：我们已收到您的订单，您的头发将尽快发送给宝宝。我们已收到您的订单，您的头发将尽快发送给宝宝。我们已收到您的订单，您的头发将尽快发送给宝宝。
+      </div>
     </div>
   </div>
 </template>
@@ -50,7 +52,9 @@ export default {
       // alert('客服服务');
     },
     showOrder() {
-      // alert('查看订单');
+      this.$router.push({
+        path: '/orderDetails',
+      });
     },
   },
 };
@@ -59,8 +63,11 @@ export default {
 <style scoped>
   .buy-success {
     width: 100%;
-    padding: 0 0.1rem;
     text-align: center;
+  }
+
+  .buy-success-box {
+    padding: 0 0.1rem;
   }
 
   .prompt {

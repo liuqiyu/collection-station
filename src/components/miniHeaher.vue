@@ -3,7 +3,7 @@
     <flexbox :gutter="0">
       <flexbox-item :span="2/7">
         <div class="top-item top-left">
-          <span class="top-menu go-back iconfont icon-fanhui"></span>
+          <span @click="goBack" class="top-menu go-back iconfont icon-fanhui"></span>
         </div>
       </flexbox-item>
       <flexbox-item :span="3/7">
@@ -26,6 +26,11 @@ export default {
   props: {
     title: null,
   },
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 
@@ -40,7 +45,7 @@ export default {
 
   .top-left {
     line-height: 0.52rem;
-    padding-left: 0.05rem;
+    padding-left: 0.12rem;
   }
 
   .go-back {
