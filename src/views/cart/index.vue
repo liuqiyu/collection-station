@@ -20,6 +20,9 @@
           </div>
         </div>
       </div>
+      <div class="a-pro">
+        <span class="btn" @click="addProducts">继续添加商品</span>
+      </div>
     </div>
     <div class="cart-bottom">
       <div class="cart-data">
