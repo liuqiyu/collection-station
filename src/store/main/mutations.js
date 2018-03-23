@@ -2,7 +2,7 @@
  * mutations
  * create by lqy 2018/3/16
  */
-import { SHOWSEARCH, MENUSTATUS, HOME_SHOW_MORE } from './mutation-types';
+import { SHOWSEARCH, MENUSTATUS, HOME_SHOW_MORE, HOME_CULOMN_TOP } from './mutation-types';
 
 const mutations = {
   [SHOWSEARCH](state, value) {
@@ -20,6 +20,9 @@ const mutations = {
   },
   [HOME_SHOW_MORE](state) {
     state.homeShowMore = false;
+  },
+  [HOME_CULOMN_TOP](state, value) {
+    state.homeCulomnTop = value;
   },
 };
 

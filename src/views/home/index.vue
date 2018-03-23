@@ -4,7 +4,7 @@
       <div class="view-img">
         <img src="./images/mian-bg.jpg" alt="">
       </div>
-      <div class="view-culomn">
+      <div class="view-culomn" :style="{ top: this.$store.state.main.homeCulomnTop + 'px'}">
         <div class="view-culomn-item item-left">
           <div class="view-culomn-col">
             <span class="v-btn" @click="showProducts('male')">Men's wristwatch</span>
@@ -248,10 +248,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import { Swiper, SwiperItem, Flexbox, FlexboxItem, Rater } from 'vux';
 import footbar from './../../components/footbar';
 
 export default {
+  mounted() {
+    this.setHomeCulomnTop();
+  },
   data() {
     return {
       data4: 4,
@@ -266,6 +270,9 @@ export default {
     Rater,
   },
   methods: {
+    ...mapActions([
+      'setHomeCulomnTop',
+    ]),
     showProducts(type) {
       this.$router.push({
         path: '/products',

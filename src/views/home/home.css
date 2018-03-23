@@ -1,7 +1,8 @@
 .h-view {
   width: 100%;
-  height: 6.25rem;
+  height: 6.15rem;
   overflow: hidden;
+  position: relative;
 }
 
 .view-img {
@@ -19,7 +20,6 @@
   left: 0;
   right: 0;
   top: 4.85rem;
-  width: 100%;
 }
 
 .view-culomn-item {

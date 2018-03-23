@@ -155,9 +155,10 @@ swiper
 }
 
 .address .vux-label {
-  font-size: 0.12rem !important;
+  font-size: 0.13rem !important;
 }
 
 .address .weui-cell__ft {
   font-size: 0.13rem !important;
+  font-weight: bold;
 }

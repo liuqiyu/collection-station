@@ -5,3 +5,4 @@
 export const SHOWSEARCH = 'SHOWSEARCH';
 export const MENUSTATUS = 'MENUSTATUS';
 export const HOME_SHOW_MORE = 'HOME_SHOW_MORE';
+export const HOME_CULOMN_TOP = 'HOME_CULOMN_TOP';
