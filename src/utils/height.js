@@ -22,7 +22,7 @@ const getHomeCulomnTop = () => {
   return new Promise((resolve) => {
     setTimeout(()=> {
       const consee = window.innerHeight - document.querySelector('.c-topbar').clientHeight;
-      resolve(consee * (485/615));
+      resolve(consee * (460/615));
     });
   });
 };
