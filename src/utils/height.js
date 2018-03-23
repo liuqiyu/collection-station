@@ -23,11 +23,12 @@ const getHomeCulomnTop = () => {
     setTimeout(()=> {
       const consee = window.innerHeight - document.querySelector('.c-topbar').clientHeight;
       // resolve(consee * (460/615));
-      if (window.innerWidth < 500) {
-        resolve(4.85 + 'rem');
-      } else {
-        resolve(consee * (460/615) + 'px');
-      }
+      // if (window.innerWidth < 500) {
+      //   resolve(4.85 + 'rem');
+      // } else {
+      //
+      // }
+      resolve(consee * (460/615) + 'px');
     });
   });
 };
