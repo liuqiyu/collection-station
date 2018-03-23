@@ -150,7 +150,7 @@ export default {
   }
   .cart-btn {
     background: #fff;
-    padding: 0.1rem 0;
+    /*padding: 0.1rem 0;*/
   }
 
   .cart-btn span {

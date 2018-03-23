@@ -2,8 +2,8 @@
   <header class="mini-header">
     <flexbox :gutter="0">
       <flexbox-item :span="2/7">
-        <div class="top-item top-left">
-          <span @click="goBack" class="top-menu go-back iconfont icon-fanhui"></span>
+        <div class="top-item top-left" @click="goBack">
+          <span class="top-menu go-back iconfont icon-fanhui"></span>
         </div>
       </flexbox-item>
       <flexbox-item :span="3/7">

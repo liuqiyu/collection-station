@@ -125,6 +125,10 @@ export default {
     padding-bottom: 1.6rem;
   }
 
+  .cart-list {
+    padding-bottom: 0.01rem;
+  }
+
   .cart-item {
     width: 100%;
     padding: 0.1rem 0.04rem 0.06rem 0.14rem;
@@ -247,6 +251,7 @@ export default {
     bottom: 0;
     right: 0;
     overflow: hidden;
+    padding: 0.1rem 0;
   }
 
   .cart-data {
@@ -272,7 +277,7 @@ export default {
 
   .cart-btn {
     background: #fff;
-    padding: 0.1rem 0;
+    padding: 0.1rem 0 0 0;
   }
 
   .cart-btn span {
