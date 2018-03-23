@@ -45,19 +45,6 @@
   animation-fill-mode: forwards;
 }
 
-.view-show-more {
-  position: absolute;
-  top: 5.75rem;
-  left: 50%;
-  margin-left: -0.25rem;
-  width: 0.5rem;
-}
-
-.view-show-more > img {
-  width: 100%;
-  vertical-align: top;
-}
-
 .view-culomn-col {
   width: 100%;
   font-size: 0;

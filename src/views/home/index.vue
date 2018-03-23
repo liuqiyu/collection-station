@@ -4,7 +4,7 @@
       <div class="view-img">
         <img src="./images/mian-bg.jpg" alt="">
       </div>
-      <div class="view-culomn" :style="{ top: this.$store.state.main.homeCulomnTop + 'px'}">
+      <div class="view-culomn" :style="{ top: this.$store.state.main.homeCulomnTop}">
         <div class="view-culomn-item item-left">
           <div class="view-culomn-col">
             <span class="v-btn" @click="showProducts('male')">Men's wristwatch</span>
@@ -21,9 +21,6 @@
             <span class="v-btn" @click="showProducts('recommendation')">New recommendation</span>
           </div>
         </div>
-      </div>
-      <div class="view-show-more" v-if="this.$store.state.main.homeShowMore">
-        <img src="./images/showmore.png" alt="">
       </div>
     </div>
     <div class="h-sale" @click="showPromotion">
@@ -248,12 +245,13 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 import { Swiper, SwiperItem, Flexbox, FlexboxItem, Rater } from 'vux';
 import footbar from './../../components/footbar';
 
 export default {
   mounted() {
+    this.HOME_SHOW_MORE(true);
     this.setHomeCulomnTop();
   },
   data() {
@@ -270,6 +268,9 @@ export default {
     Rater,
   },
   methods: {
+    ...mapMutations([
+      'HOME_SHOW_MORE',
+    ]),
     ...mapActions([
       'setHomeCulomnTop',
     ]),
@@ -291,6 +292,9 @@ export default {
         path: '/products',
       });
     },
+  },
+  beforeDestroy() {
+    this.HOME_SHOW_MORE(false);
   },
 };
 </script>

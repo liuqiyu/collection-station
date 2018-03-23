@@ -18,8 +18,8 @@ const mutations = {
       state.menuStatus = true;
     }
   },
-  [HOME_SHOW_MORE](state) {
-    state.homeShowMore = false;
+  [HOME_SHOW_MORE](state, value) {
+    state.homeShowMore = value;
   },
   [HOME_CULOMN_TOP](state, value) {
     state.homeCulomnTop = value;

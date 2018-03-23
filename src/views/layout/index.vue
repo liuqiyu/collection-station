@@ -20,6 +20,9 @@
         <router-view></router-view>
       </div>
     </div>
+    <div class="view-show-more" v-if="this.$store.state.main.homeShowMore">
+      <img src="./showmore.png" alt="">
+    </div>
     <div class="chat iconfont icon-chat" ref="chat"></div>
     <div class="toTop iconfont icon-top" ref="toTop" @click="toTop"></div>
   </div>
@@ -53,7 +56,7 @@ export default {
       probeType: 3,
     });
     this.scroll.on('scroll', () => {
-      this.HOME_SHOW_MORE();
+      this.HOME_SHOW_MORE(false);
       // 下拉动作
       if (Math.abs(this.scroll.y) > Number(wrapper.clientHeight) / 2) {
         this.$refs.chat.classList.add('show');
@@ -171,5 +174,18 @@ export default {
     text-align: center;
     line-height: 0.28rem;
     font-size: 0.24rem;
+  }
+
+  .view-show-more {
+    position: absolute;
+    bottom: 0.05rem;
+    left: 50%;
+    margin-left: -0.25rem;
+    width: 0.5rem;
+  }
+
+  .view-show-more > img {
+    width: 100%;
+    vertical-align: top;
   }
 </style>

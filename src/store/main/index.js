@@ -8,8 +8,9 @@ import actions from './actions';
 const state = {
   showSearch: false,
   menuStatus: false,
-  homeShowMore: true,
-  homeCulomnTop: 0,
+  homeShowMore: false,
+  homeCulomnTop: null,
+  homeShowMoreTop: null,
 };
 
 export default {
