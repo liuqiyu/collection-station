@@ -1,0 +1,301 @@
+.scroll-box {
+  padding-bottom: 0.4rem;
+}
+
+/*
+  评分
+ */
+.p-rate {
+  text-align: center;
+  padding: 0.12rem 0;
+}
+
+.p-rate .score {
+  margin-left: 0.05rem;
+  font-size: 0.12rem;
+  color: #666;
+}
+
+/*
+  轮播1
+ */
+
+.swiper {
+  width: 100%;
+}
+
+.flex-demo {
+  width: 100%;
+}
+
+.flex-demo .flex-demo-img {
+  width: 100%;
+}
+
+.flex-demo .flex-demo-img > img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.flex-demo-desc {
+  padding: 0.1rem;
+}
+
+.flex-demo-desc .flex-demo-radio {
+  text-align: center;
+}
+
+.vux-flexbox-item:nth-child(1) {
+  padding-right: 0.04rem;
+}
+
+.vux-flexbox-item:nth-child(2) {
+  padding-left: 0.02rem;
+  padding-right: 0.02rem;
+}
+
+.vux-flexbox-item:nth-child(3) {
+  padding-left: 0.04rem;
+}
+
+/*
+ 价格
+ */
+.p-price {
+  padding: 0.25rem 0;
+  text-align: center;
+}
+
+.p-price .label {
+  font-size: 0.16rem;
+  margin-bottom: 0.05rem;
+  color: #333;
+}
+
+.p-price .num {
+  font-size: 0.14rem;
+  color: #333;
+}
+
+/**
+periphery 周边
+ */
+
+.p-title {
+  border-top: 1px solid #ececec;
+  padding: 0.16rem 0 0.3rem 0;
+  text-align: center;
+}
+
+.p-title span {
+  font-size: 0.12rem;
+  margin-right: 0.02rem;
+}
+
+/**
+ 细节
+ */
+
+.details {
+  width: 100%;
+  background: #f6f9f9;
+  padding: 0.25rem 0;
+}
+
+.details header {
+  text-align: center;
+  padding-bottom: 0.25rem;
+  font-size: 0.16rem;
+}
+
+.details-content {
+  padding: 0 0.3rem;
+}
+
+.details-swiper {
+  background: #fff;
+}
+
+.details-content .cell {
+  border-bottom: 1px solid #ececec;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  overflow: hidden;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/**
+ 反馈
+ */
+
+.feedback {
+  padding: 0 0.13rem 0.3rem 0.13rem;
+}
+
+.feedback header {
+  text-align: center;
+  padding: 0.25rem;
+  font-size: 0.16rem;
+}
+
+.feedback-box {
+  position: relative;
+  width: 100%;
+  border: 1px solid #ececec;
+  margin: 0 auto;
+  padding: 0.15rem 0.2rem 0.2rem 0.2rem;
+}
+
+.feedback-box .item {
+  width: 100%;
+  font-size: 0.12rem;
+  margin-bottom: 0.1rem;
+}
+
+.feedback-box .item.comment {
+  margin-bottom: 0.2rem;
+  word-break:break-all;
+  word-wrap:break-word;
+}
+
+.feedback-box .item > p {
+  margin-bottom: 0.1rem;
+}
+
+.comment-think > p.text {
+  margin-right: 0.1rem;
+}
+
+.comment-think > p {
+  float: left;
+  margin-right: 0.2rem;
+}
+
+.comment-think > p .num {
+  margin-left: 0.05rem;
+}
+
+.comment-think .icon {
+  font-size: 0.14rem;
+}
+
+.feedback-box .item p.share span {
+  font-size: 0.13rem;
+  margin-right: 0.05rem;
+  font-weight: bold;
+}
+.feedback-box .item.space-between {
+  line-height: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  overflow: hidden;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+
+.feedback .right-btn {
+  display: block;
+  width: 0.24rem;
+  height: 0.26rem;
+  background: #f2f2f3;
+  text-align: center;
+  line-height: 0.26rem;
+  position: absolute;
+  right: -0.12rem;
+  top: 50%;
+  margin-top: -0.13rem;
+}
+
+/**
+ 可能喜欢
+ */
+.may-like {
+  border-top: 1px solid #ececec;
+}
+
+.may-like header {
+  font-size: 0.16rem;
+  padding: 0.3rem 0;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+.pro-list {
+  width: 100%;
+  background: #fff;
+}
+
+.list-item {
+  width: 100%;
+  height: 2.25rem;
+  padding-top: 0.1rem;
+}
+
+
+.list-item .img {
+  width: 1.2rem;
+  margin: 0 auto;
+}
+
+.list-item .img > img {
+  width: 100%;
+}
+
+.list-item .desc {
+  text-align: center;
+}
+
+.list-item .btn {
+  margin-top: 0.1rem;
+}
+
+.list-item .btn span {
+  width: 0.82rem;
+  height: 0.24rem;
+  display: block;
+  background: #000;
+  text-align: center;
+  line-height: 0.24rem;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.list-item .desc p {
+  margin-top: 0.1rem;
+  font-size: 0.12rem;
+}
+
+/**
+ 加入购物车
+ */
+
+.add-cart {
+  width: 100%;
+  height: 0.4rem;
+  background: #000000;
+  color: #fff;
+  line-height: 0.4rem;
+  text-align: center;
+  letter-spacing: 0.05rem;
+  z-index: 99;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

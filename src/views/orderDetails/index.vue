@@ -12,13 +12,13 @@
       <div class="details-item">
         <label>收货地址</label>
         <div class="desc">
-          <span>阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧</span>
+          <span>深圳南山</span>
         </div>
       </div>
       <div class="details-item">
         <label>备注</label>
         <div class="desc">
-          <span>阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧阿西吧</span>
+          <span>快点</span>
         </div>
       </div>
     </div>

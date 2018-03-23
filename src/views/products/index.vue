@@ -1,19 +1,19 @@
 <template>
   <div class="silver">
     <div class="title">{{title}}</div>
-    <div class="pro-list" ref="proList">
+    <div class="pro-list" ref="proList" v-if="this.$store.state.products.productsList.length > 0">
       <flexbox :gutter="0" wrap="wrap">
-        <flexbox-item :span="1/2" v-for="(item, index) in proList" :key="index">
-          <div class="list-item">
+        <flexbox-item :span="1/2" v-for="(item, index) in productsList" :key="index">
+          <div class="list-item" @click="showDetails">
             <div class="img">
               <img src="./images/products.jpg" alt="">
             </div>
             <div class="desc">
-              <p class="name">卡西欧100katina</p>
-              <p class="price">$1999</p>
+              <p class="name">{{item.name}}</p>
+              <p class="price">${{item.price}}</p>
             </div>
             <div class="btn">
-              <span @click="addCart(item)">加入购物车</span>
+              <span @click.stop="addCart(item)">加入购物车</span>
             </div>
           </div>
         </flexbox-item>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex';
 import { Flexbox, FlexboxItem } from 'vux';
 import footbar from './../../components/footbar';
 
@@ -35,21 +36,34 @@ export default {
   },
   data() {
     return {
-      proList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       title: null,
       type: null,
     };
   },
+  computed: {
+    ...mapState({
+      productsList: state => state.products.productsList,
+    }),
+  },
   watch: {
     '$route'() {
       this.checkType();
+      this.setProductsList(this.$route.query.type);
+      this.getData();
     },
   },
   mounted() {
     this.checkType();
+    this.setProductsList(this.$route.query.type);
     this.getData();
   },
   methods: {
+    ...mapMutations([
+      'ADD_CART',
+    ]),
+    ...mapActions([
+      'setProductsList',
+    ]),
     checkType() {
       if (this.$route.query.type === undefined) {
         this.type = 'all';
@@ -74,15 +88,24 @@ export default {
       }
     },
     getData() {
-      if (this.proList.length % 2 === 0) {
-        this.$refs.proList.classList.add('is-even');
-      } else {
-        this.$refs.proList.classList.remove('is-even');
-      }
+      setTimeout(() => {
+        if (this.productsList.length % 2 === 0) {
+          this.$refs.proList.classList.add('is-even');
+        } else {
+          this.$refs.proList.classList.remove('is-even');
+        }
+      });
     },
-    addCart() {
+    addCart(item) {
       this.$router.push({
         path: '/cart',
+      });
+      // 添加至购物车
+      this.ADD_CART(item);
+    },
+    showDetails() {
+      this.$router.push({
+        path: '/proDetails',
       });
     },
   },

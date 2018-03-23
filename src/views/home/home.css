@@ -2,7 +2,6 @@
   width: 100%;
   height: 6.25rem;
   overflow: hidden;
-  position: relative;
 }
 
 .view-img {
@@ -15,11 +14,11 @@
 }
 
 .view-culomn {
-  position: absolute;
+  position: fixed;
   width: 100%;
   left: 0;
   right: 0;
-  bottom: 1.85rem;
+  top: 4.85rem;
   width: 100%;
 }
 
@@ -44,6 +43,19 @@
   animation: rightAnimation 0.5s;
   -webkit-animation: rightAnimation 0.5s; /* Safari 与 Chrome */
   animation-fill-mode: forwards;
+}
+
+.view-show-more {
+  position: absolute;
+  top: 5.75rem;
+  left: 50%;
+  margin-left: -0.25rem;
+  width: 0.5rem;
+}
+
+.view-show-more > img {
+  width: 100%;
+  vertical-align: top;
 }
 
 .view-culomn-col {
@@ -90,10 +102,21 @@
   to {right: 0;}
 }
 
+.vux-flexbox-item:nth-child(1) {
+  padding-right: 0.04rem;
+}
+
+.vux-flexbox-item:nth-child(2) {
+  padding-left: 0.02rem;
+  padding-right: 0.02rem;
+}
+
+.vux-flexbox-item:nth-child(3) {
+  padding-left: 0.04rem;
+}
+
 .flex-demo {
   width: 100%;
-  /*background: red;*/
-  /*height: 1.56rem;*/
 }
 
 .flex-demo .flex-demo-img {
@@ -107,7 +130,6 @@
 
 .flex-demo-desc {
   width: 100%;
-  height: 50px;
   text-align: center;
   margin-top: 0.1rem;
 }
@@ -191,7 +213,6 @@
   float: left;
   width: 0.8rem;
   padding-top: 0.18rem;
-  margin-right: 0.05rem;
 }
 
 .gird-item-cell .cell-left .cell-p .name {

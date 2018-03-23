@@ -53,6 +53,7 @@ export default {
       probeType: 3,
     });
     this.scroll.on('scroll', () => {
+      this.HOME_SHOW_MORE();
       // 下拉动作
       if (Math.abs(this.scroll.y) > Number(wrapper.clientHeight) / 2) {
         this.$refs.chat.classList.add('show');
@@ -62,6 +63,7 @@ export default {
         this.$refs.toTop.classList.remove('show');
       }
     });
+    this.GET_CART_DATA();
   },
   data() {
     return {
@@ -69,6 +71,11 @@ export default {
       results: [],
       value: '',
     };
+  },
+  watch: {
+    '$route'() {
+      this.GET_CART_DATA();
+    },
   },
   components: {
     topbar,
@@ -78,6 +85,8 @@ export default {
   methods: {
     ...mapMutations([
       'SHOWSEARCH',
+      'GET_CART_DATA',
+      'HOME_SHOW_MORE',
     ]),
     change(lang) {
       switch (lang) {
@@ -129,6 +138,11 @@ export default {
     height: 100%;
     padding-top: 0.52rem;
   }
+
+  .wrapper-scroll {
+    position: relative;
+  }
+
   .chat {
     display: none;
     position: fixed;

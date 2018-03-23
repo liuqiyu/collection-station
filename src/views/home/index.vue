@@ -7,33 +7,36 @@
       <div class="view-culomn">
         <div class="view-culomn-item item-left">
           <div class="view-culomn-col">
-            <span class="v-btn" @click="showProducts">Men's wristwatch</span>
+            <span class="v-btn" @click="showProducts('male')">Men's wristwatch</span>
           </div>
           <div class="view-culomn-col">
-            <span class="v-btn" @click="showPromotion">Men's wristwatch</span>
+            <span class="v-btn" @click="showProducts('female')">Women's wristwatch</span>
           </div>
         </div>
         <div class="view-culomn-item item-right">
           <div class="view-culomn-col">
-            <span class="v-btn">Men's wristwatch</span>
+            <span class="v-btn" @click="showProducts('intelligence')">Intelligent style</span>
           </div>
           <div class="view-culomn-col">
-            <span class="v-btn">Men's wristwatch</span>
+            <span class="v-btn" @click="showProducts('recommendation')">New recommendation</span>
           </div>
         </div>
       </div>
+      <div class="view-show-more" v-if="this.$store.state.main.homeShowMore">
+        <img src="./images/showmore.png" alt="">
+      </div>
     </div>
-    <div class="h-sale">
+    <div class="h-sale" @click="showPromotion">
       <img src="./images/sale.png" alt="">
     </div>
-    <div class="h-show-all">
+    <div class="h-show-all" @click="showAll">
       <img src="./images/showall.png" alt="">
     </div>
     <div class="h-swipe">
-      <swiper auto dots-position="center" height="2.7rem">
+      <swiper auto dots-position="center" height="2.75rem">
         <swiper-item class="black">
-          <flexbox :gutter="11">
-            <flexbox-item>
+          <flexbox :gutter="0" wrap="wrap">
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -45,7 +48,7 @@
                 </div>
               </div>
             </flexbox-item>
-            <flexbox-item>
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -57,7 +60,7 @@
                 </div>
               </div>
             </flexbox-item>
-            <flexbox-item>
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -72,8 +75,8 @@
           </flexbox>
         </swiper-item>
         <swiper-item class="black">
-          <flexbox :gutter="11">
-            <flexbox-item>
+          <flexbox :gutter="0" wrap="wrap">
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -85,7 +88,7 @@
                 </div>
               </div>
             </flexbox-item>
-            <flexbox-item>
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -97,7 +100,7 @@
                 </div>
               </div>
             </flexbox-item>
-            <flexbox-item>
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -112,8 +115,8 @@
           </flexbox>
         </swiper-item>
         <swiper-item class="black">
-          <flexbox :gutter="11">
-            <flexbox-item>
+          <flexbox :gutter="0" wrap="wrap">
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -125,7 +128,7 @@
                 </div>
               </div>
             </flexbox-item>
-            <flexbox-item>
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -137,7 +140,7 @@
                 </div>
               </div>
             </flexbox-item>
-            <flexbox-item>
+            <flexbox-item :span="1/3">
               <div class="flex-demo">
                 <div class="flex-demo-img">
                   <img src="./images/sample.png" alt="">
@@ -263,14 +266,22 @@ export default {
     Rater,
   },
   methods: {
-    showProducts() {
+    showProducts(type) {
       this.$router.push({
         path: '/products',
+        query: {
+          type,
+        },
       });
     },
     showPromotion() {
       this.$router.push({
         path: '/promotion',
+      });
+    },
+    showAll() {
+      this.$router.push({
+        path: '/products',
       });
     },
   },

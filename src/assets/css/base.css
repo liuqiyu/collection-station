@@ -17,7 +17,8 @@
 
 
 .vux-number-selector-plus, .vux-number-selector-sub {
-  padding: 0.02rem !important;
+  /*padding: 0.02rem !important;*/
+  padding: 0.04rem 0.08rem 0.02rem 0.08rem !important;
 }
 
 .vux-number-selector svg {
@@ -27,10 +28,12 @@
 .vux-number-input {
   height: 0.25rem !important;
   font-size: 0.12rem !important;
+  width: 0.4rem !important;
 }
 
 .vux-number-selector {
   height: 0.25rem !important;
+  line-height: 0.20rem !important;
 }
 
 .vux-number-selector-sub {
@@ -45,12 +48,24 @@
  dialog
  */
 
+.weui-dialog {
+  max-width: 3rem !important;
+}
+
 .weui-dialog__title {
   font-size: 0.16rem !important;
 }
 
 .weui-dialog__btn {
   font-size: 0.16rem !important;
+}
+
+.weui-dialog__bd {
+  min-height: 0.4rem !important;
+}
+
+.weui-dialog__ft {
+  line-height: 0.48rem !important;
 }
 
 /**
@@ -74,4 +89,75 @@
 .red-color .weui-cell__ft {
   color: #fb5050;
   opacity: 0.8;
+}
+
+.weui-mask_transparent {
+  z-index: 9999;
+}
+
+/**
+rate
+ */
+
+.p-rate .vux-rater a {
+  font-size: 0.2rem !important;
+}
+
+.p-rate .vux-rater-box {
+  width: 0.2rem !important;
+  height: 0.2rem !important;
+}
+
+/** home **/
+.cell-rate .vux-rater a {
+  font-size: 0.14rem !important;
+}
+
+.cell-rate .vux-rater-box {
+  width: 0.14rem !important;
+  height: 0.14rem !important;
+}
+
+.weui-loading_toast {
+  z-index: 9999 !important;
+}
+
+/**
+tab
+ */
+
+.vux-tab {
+  height: 0.44rem !important;
+}
+
+.vux-tab .vux-tab-item {
+  font-size: 0.14rem !important;
+  line-height: 0.44rem !important;
+}
+
+/**
+swiper
+ */
+
+.vux-slider > .vux-indicator > a > .vux-icon-dot, .vux-slider .vux-indicator-right > a > .vux-icon-dot {
+  width: 0.06rem !important;
+  height: 0.06rem !important;
+  border-radius: 50% !important;
+}
+
+
+.address .weui-cells__title {
+  font-size: 0.14rem !important;
+}
+
+.address .weui-cell {
+  padding: 0.1rem 0.15rem;
+}
+
+.address .vux-label {
+  font-size: 0.12rem !important;
+}
+
+.address .weui-cell__ft {
+  font-size: 0.13rem !important;
 }

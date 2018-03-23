@@ -2,17 +2,17 @@
   <div class="cart" :style="{height: height + 'px'}">
     <div class="cart-list-wrap">
       <div class="cart-list">
-        <div class="cart-item" v-for="(item, index) in cartList" :key="index">
+        <div class="cart-item" v-for="(item, index) in cartData" :key="index">
           <div class="cart-img">
             <img src="./images/pro.jpg" alt="">
           </div>
           <div class="cart-desc">
-            <div class="label">{{item.label}}</div>
+            <div class="label">{{item.name}}</div>
             <div class="price">{{item.number}} X {{item.price}}</div>
             <div class="other">
               <div class="spec">{{item.spec}}</div>
               <div class="num">
-                <x-number :value="item.number" :min="1" width="40px" fillable></x-number>
+                <x-number v-model="item.number" :min="1" width="40px" fillable></x-number>
               </div>
             </div>
             <span class="delete iconfont icon-shanchudelete30" @click="recovery(item, index)">
@@ -20,7 +20,10 @@
           </div>
         </div>
       </div>
-      <div class="a-pro" :style="bg">
+      <div class="a-pro">
+        <div class="add-bg">
+          <img src="./images/bg.png" alt="">
+        </div>
         <span class="btn" @click="addProducts">继续添加商品</span>
       </div>
     </div>
@@ -55,6 +58,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import BScroll from 'better-scroll';
 import { XNumber, Group, Confirm } from 'vux';
 import { getHeight } from './../../utils/height';
@@ -68,50 +72,15 @@ export default {
   data() {
     return {
       show: false,
-      cartList: [
-        {
-          label: 'CLASSIC SUFFOLK1',
-          number: 1,
-          spec: '4MM',
-          price: '1999',
-        },
-        {
-          label: 'CLASSIC SUFFOLK2',
-          number: 1,
-          spec: '4MM',
-          price: '1999',
-        },
-        {
-          label: 'CLASSIC SUFFOLK2',
-          number: 1,
-          spec: '4MM',
-          price: '1999',
-        },
-        {
-          label: 'CLASSIC SUFFOLK2',
-          number: 1,
-          spec: '4MM',
-          price: '1999',
-        },
-        {
-          label: 'CLASSIC SUFFOLK2',
-          number: 1,
-          spec: '4MM',
-          price: '1999',
-        },
-        {
-          label: 'CLASSIC SUFFOLK2',
-          number: 1,
-          spec: '4MM',
-          price: '1999',
-        },
-      ],
       height: 0,
       index: null,
-      bg: {
-        backgroundImage: 'url(' + require('./images/bg.png') + ')',
-      },
+      selectDelete: {},
     };
+  },
+  computed: {
+    ...mapState({
+      cartData: state => state.cart.cartData,
+    }),
   },
   mounted() {
     const wrapper = document.querySelector('.cart');
@@ -119,6 +88,9 @@ export default {
     this.height = getHeight(['.c-topbar']);
   },
   methods: {
+    ...mapMutations([
+      'DELETE_CART_PRO',
+    ]),
     addProducts() {
       this.$router.push({
         path: '/products',
@@ -127,13 +99,17 @@ export default {
     recovery(item, index) {
       this.index = index;
       this.show = true;
+      this.selectDelete = item;
     },
     onConfirm() {
-      this.cartList.splice(this.index, 1);
+      this.DELETE_CART_PRO(this.selectDelete);
     },
     checkout() {
       this.$router.push({
         path: '/address',
+        query: {
+          type: 'cart',
+        },
       });
     },
   },
@@ -237,17 +213,32 @@ export default {
     width: 100%;
     overflow: hidden;
     height: 0.58rem;
-    padding-top: 0.1rem;
+    margin-top: 0.1rem;
+    position: relative;
+  }
+
+  .add-bg {
+    width: 100%;
+    vertical-align: top;
+  }
+
+  .add-bg > img {
+    width: 100%;
   }
 
   .a-pro .btn {
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.18rem;
+    margin-left: -0.54rem;
     display: block;
     width: 1.08rem;
     height: 0.37rem;
     text-align: center;
     line-height: 0.35rem;
     border: 2px solid #000;
+    z-index: 88;
   }
 
   .cart-bottom {

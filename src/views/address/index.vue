@@ -8,17 +8,17 @@
         </group>
       </div>
       <div class="cart-list" v-if="!showTotalPrice">
-        <div class="cart-item" v-for="(item, index) in cartList" :key="index">
+        <div class="cart-item" :key="index">
           <div class="cart-img">
             <img src="./images/pro.jpg" alt="">
           </div>
           <div class="cart-desc">
-            <div class="label">{{item.label}}</div>
-            <div class="price">{{item.number}} X {{item.price}}</div>
+            <div class="label">{{promotionData.name}}</div>
+            <div class="price">{{promotionData.number}} X {{promotionData.price}}</div>
             <div class="other">
-              <div class="spec">{{item.spec}}</div>
+              <div class="spec">{{promotionData.spec}}</div>
               <div class="num">
-                <x-number :value="item.number" :min="1" width="40px" fillable></x-number>
+                <x-number v-model="promotionData.number" :min="1" width="40px" fillable></x-number>
               </div>
             </div>
           </div>
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import BScroll from 'better-scroll';
 import { XInput, Group, XTextarea, XSwitch, Cell, XNumber, Confirm } from 'vux';
 import { getHeight } from './../../utils/height';
@@ -57,8 +58,8 @@ export default {
       email: null,
       content: null,
       cashOnDelivery: true,
-      height: 0,
       money: '￥123',
+      height: 0,
       cartList: [
         {
           label: 'CLASSIC SUFFOLK1',
@@ -72,21 +73,21 @@ export default {
       showTotalPrice: true,
     };
   },
+  computed: {
+    ...mapState({
+      promotionData: state => state.cart.promotionData,
+    }),
+  },
   mounted() {
+    this.GET_PROMOTION_DATA();
     const wrapper = document.querySelector('.address');
     this.scroll = new BScroll(wrapper);
     this.height = getHeight(['.c-topbar']);
-  },
-  beforeRouteEnter(to, from, next) {
-    next((vm) => {
-      const self = vm;
-      // 通过 `vm` 访问组件实例
-      if (from.name === 'cart') {
-        self.showTotalPrice = true;
-      } else {
-        self.showTotalPrice = false;
-      }
-    });
+    if (this.$route.query.type === 'cart') {
+      this.showTotalPrice = true;
+    } else if (this.$route.query.type === 'promotion') {
+      this.showTotalPrice = false;
+    }
   },
   components: {
     XInput,
@@ -98,6 +99,9 @@ export default {
     Confirm,
   },
   methods: {
+    ...mapMutations([
+      'GET_PROMOTION_DATA',
+    ]),
     submitOrder() {
       this.$router.push({
         path: '/buySuccess',

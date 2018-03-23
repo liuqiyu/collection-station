@@ -3,7 +3,9 @@
     <miniHeaher :title="title"></miniHeaher>
     <div class="buy-success-box">
       <div class="prompt">
-        <span class="icon iconfont icon-ERP_xiadan"></span>
+        <span class="icon">
+          <img src="./images/buy-success.png" alt="">
+        </span>
         <span class="text">下单成功!</span>
       </div>
       <div class="price">
@@ -64,6 +66,7 @@ export default {
   .buy-success {
     width: 100%;
     text-align: center;
+    padding-bottom: 0.5rem;
   }
 
   .buy-success-box {
@@ -76,10 +79,16 @@ export default {
   }
 
   .prompt .icon {
-    font-size: 0.64rem;
+    display: inline-block;
+    width: 1.09rem;
+    height: 1.18rem;
     color: #000;
-    vertical-align: middle;
     margin-right: 0.15rem;
+  }
+
+  .prompt .icon > img {
+    width: 100%;
+    vertical-align: middle;
   }
 
   .prompt .text {

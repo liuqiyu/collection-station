@@ -2,7 +2,7 @@
  * mutations
  * create by lqy 2018/3/16
  */
-import { SHOWSEARCH, MENUSTATUS } from './mutation-types';
+import { SHOWSEARCH, MENUSTATUS, HOME_SHOW_MORE } from './mutation-types';
 
 const mutations = {
   [SHOWSEARCH](state, value) {
@@ -17,6 +17,9 @@ const mutations = {
       cmenu.classList.add('open');
       state.menuStatus = true;
     }
+  },
+  [HOME_SHOW_MORE](state) {
+    state.homeShowMore = false;
   },
 };
 

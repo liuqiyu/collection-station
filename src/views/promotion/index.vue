@@ -18,12 +18,12 @@
       </clocker>
     </div>
     <div class="promo-list">
-      <div class="promo-item" v-for="(item, index) in salesList" :key="index">
+      <div class="promo-item" v-for="(item, index) in promotionsData" :key="index">
         <div class="pro-img">
           <img src="./images/sale-pro.jpg" alt="">
         </div>
         <div class="pro-desc">
-          <div class="label">{{item.label}}</div>
+          <div class="label">{{item.name}}</div>
           <div class="new-price">
             <span>{{item.price}} SAR</span>
             <span class="rate">{{item.rate}}</span>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import { Clocker, XProgress } from 'vux';
 import footbar from './../../components/footbar';
 
@@ -58,60 +59,32 @@ export default {
   data() {
     return {
       time1: '2018-07-13 21:54',
-      salesList: [
-        {
-          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
-          price: '89.98',
-          rate: '-43%',
-          oldPrice: '157.46',
-          stock: '256',
-          percent: 60,
-        },
-        {
-          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
-          price: '89.98',
-          rate: '-43%',
-          oldPrice: '157.46',
-          stock: '256',
-          percent: 60,
-        },
-        {
-          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
-          price: '89.98',
-          rate: '-43%',
-          oldPrice: '157.46',
-          stock: '256',
-          percent: 60,
-        },
-        {
-          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
-          price: '89.98',
-          rate: '-43%',
-          oldPrice: '157.46',
-          stock: '256',
-          percent: 60,
-        },
-        {
-          label: '男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表男生手表',
-          price: '89.98',
-          rate: '-43%',
-          oldPrice: '157.46',
-          stock: '256',
-          percent: 60,
-        },
-      ],
     };
   },
-  created() {
+  computed: {
+    ...mapState({
+      promotionsData: state => state.products.promotionsList,
+    }),
+  },
+  mounted() {
     setTimeout(() => {
       this.time1 = '2018-08-13 22:54';
     }, 5000);
+    this.setPromotionsList();
   },
   methods: {
-    panicBuying() {
+    ...mapActions([
+      'setPromotionsList',
+    ]),
+    panicBuying(item) {
       this.$router.push({
         path: '/address',
+        query: {
+          type: 'promotion',
+        },
       });
+      const promotionData = item;
+      sessionStorage.setItem('promotionData', JSON.stringify(promotionData));
     },
   },
 };

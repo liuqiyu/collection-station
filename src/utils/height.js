@@ -15,8 +15,6 @@ const getHeight = (dom) => {
       h += 0;
     }
   });
-  console.log(window.innerHeight);
-  console.log(h);
   return window.innerHeight - h;
 };
 
