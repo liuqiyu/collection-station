@@ -14,7 +14,7 @@
       </flexbox-item>
       <flexbox-item :span="2/7">
         <div class="top-item top-right">
-          <div class="search iconfont icon-sousuo" @click="search"></div>
+          <div class="search iconfont icon-sousuo" @click.stop="search"></div>
           <div class="shop-cart iconfont icon-gouwuche" @click="toCart"></div>
         </div>
       </flexbox-item>

@@ -49,7 +49,10 @@ function getResult(val) {
 export default {
   mounted() {
     const wrapper = document.querySelector('.wrapper-scroll');
-    // const body = document.querySelector('body');
+    wrapper.onclick = () => {
+      this.SHOWSEARCH(false);
+      this.CLOSE_MENU();
+    };
     this.scroll = new BScroll(wrapper, {
       click: true,
       scrollY: true,
@@ -78,6 +81,7 @@ export default {
   watch: {
     '$route'() {
       this.GET_CART_DATA();
+
     },
   },
   components: {
@@ -90,6 +94,7 @@ export default {
       'SHOWSEARCH',
       'GET_CART_DATA',
       'HOME_SHOW_MORE',
+      'CLOSE_MENU',
     ]),
     change(lang) {
       switch (lang) {
