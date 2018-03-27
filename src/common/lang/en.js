@@ -8,7 +8,7 @@ export const m = {
   shopingCart: 'Shopping Cart',
   ladiesWatch: 'Ladies watch',
   menWatch: 'Men watch',
-  smartWatch: 'Men watch',
+  smartWatch: 'Smart watch',
   newProducts: 'New Products',
   allProducts: 'All Products',
   freeShippingWorldwide: 'Free shipping worldwide',

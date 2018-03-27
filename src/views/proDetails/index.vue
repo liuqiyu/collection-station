@@ -4,7 +4,7 @@
       <div class="p-rate">
         <rater v-model="rate" :font-size="20" :margin="0"></rater>
         <span class="score">
-          192评分
+          192{{$t('m.grade')}}
         </span>
       </div>
       <div class="swiper">
@@ -214,7 +214,7 @@
         </section>
       </div>
     </div>
-    <div class="add-cart" @click="addCart">加入购物车</div>
+    <div class="add-cart" @click="addCart">{{$t('m.addToCart')}}</div>
   </div>
 </template>
 

@@ -3,27 +3,27 @@
     <miniHeaher :title="title"></miniHeaher>
     <div class="address-details">
       <div class="details-item">
-        <label>收货人</label>
+        <label>{{$t('m.recipient')}}</label>
         <div class="desc">
           <span>张思</span>
           <span>13652525252</span>
         </div>
       </div>
       <div class="details-item">
-        <label>收货地址</label>
+        <label>{{$t('m.deliveryAddress')}}</label>
         <div class="desc">
           <span>深圳南山</span>
         </div>
       </div>
       <div class="details-item">
-        <label>备注</label>
+        <label>{{$t('m.note')}}</label>
         <div class="desc">
           <span>快点</span>
         </div>
       </div>
     </div>
     <div class="baby-details">
-      <header>宝贝详情</header>
+      <header>{{$t('m.orderDetails')}}</header>
       <section>
         <div class="baby-item"
              v-for="(item, index) in cartList" v-if="index === 1" :key="index">
@@ -65,7 +65,7 @@
       <div class="baby-btn-wrap" v-if="cartList.length > 1">
         <div class="baby-btn" v-if="!showAll" @click="showList">
           <span class="icon iconfont icon-xiangxiajiantou"></span>
-          <span>更多</span>
+          <span>{{$t('m.learnMore')}}</span>
         </div>
         <div class="baby-btn" v-else @click="showList">
           <span class="icon iconfont icon-xiangshang_jiantou"></span>
@@ -74,16 +74,16 @@
       </div>
     </div>
     <div class="baby-number">
-      <p>订单编号：<span>01010102001200</span></p>
-      <p>订购时间：<span class="date">2016/01/03</span><span class="time">16:01:01</span></p>
+      <p>{{$t('m.orderNumber')}}：<span>01010102001200</span></p>
+      <p>{{$t('m.orderTime')}}：<span class="date">2016/01/03</span><span class="time">16:01:01</span></p>
     </div>
     <div class="baby-price">
       <div class="price-item">
-        <label>商品价格</label>
+        <label>{{$t('m.commodityPrice')}}</label>
         <span>$199999</span>
       </div>
       <div class="price-item">
-        <label>运费</label>
+        <label>{{$t('m.shippingFee')}}</label>
         <span>$0</span>
       </div>
       <div class="price-item">
@@ -107,7 +107,6 @@ export default {
   },
   data() {
     return {
-      title: '查看详情',
       showAll: false,
       cartList: [
         {
@@ -136,6 +135,11 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    title() {
+      return this.$t('m.viewDetails')
+    }
   },
   methods: {
     showList() {
@@ -279,8 +283,13 @@ export default {
     font-weight: bold;
   }
 
+  .baby-btn-wrap {
+    text-align: center;
+  }
+
   .baby-btn {
-    width: 0.6rem;
+    display: inline-block;
+    padding: 0 0.1rem;
     height: 0.26rem;
     background: #000;
     margin: 0 auto;

@@ -7,13 +7,16 @@
           <div class="list-item" @click="showDetails">
             <div class="img">
               <img src="./images/products.jpg" alt="">
+              <!--<x-img :src="@/images/products.jpg"-->
+                     <!--class="ximg-demo" error-class="ximg-error"-->
+                     <!--:offset="-100"></x-img>-->
             </div>
             <div class="desc">
               <p class="name">{{item.name}}</p>
               <p class="price">${{item.price}}</p>
             </div>
             <div class="btn">
-              <span @click.stop="addCart(item)">加入购物车</span>
+              <span @click.stop="addCart(item)">{{$t('m.addToCart')}}</span>
             </div>
           </div>
         </flexbox-item>
@@ -25,7 +28,7 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex';
-import { Flexbox, FlexboxItem } from 'vux';
+import { Flexbox, FlexboxItem, XImg } from 'vux';
 import footbar from './../../components/footbar';
 
 export default {
@@ -33,6 +36,7 @@ export default {
     Flexbox,
     FlexboxItem,
     footbar,
+    XImg,
   },
   data() {
     return {
@@ -72,16 +76,16 @@ export default {
       }
       switch (this.type) {
         case 'all':
-          this.title = '全部商品';
+          this.title = this.$t('m.allProducts');
           break;
         case 'intelligence':
-          this.title = '智能系列';
+          this.title = this.$t('m.smartWatch');
           break;
         case 'male':
-          this.title = '男款';
+          this.title = this.$t('m.menWatch');
           break;
         case 'female':
-          this.title = '女款';
+          this.title = this.$t('m.ladiesWatch');
           break;
         default:
           break;
@@ -150,6 +154,8 @@ export default {
 
   .list-item .img {
     width: 1.2rem;
+    height: 1.2rem;
+    overflow: hidden;
     margin: 0 auto;
   }
 

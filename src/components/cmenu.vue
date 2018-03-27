@@ -12,19 +12,19 @@
             <span class="iconfont icon-jiahao"></span>
           </div>
           <div @click="link('/products')" class="shop-cell">
-            <span class="label">全部商品</span>
+            <span class="label">{{$t('m.allProducts')}}</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
           <div @click="link('/products', 'intelligence')" class="shop-cell">
-            <span class="label">智能系列</span>
+            <span class="label">{{$t('m.smartWatch')}}</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
           <div @click="link('/products', 'male')" class="shop-cell">
-            <span class="label">男款</span>
+            <span class="label">{{$t('m.menWatch')}}</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
           <div @click="link('/products', 'female')" class="shop-cell">
-            <span class="label">女款</span>
+            <span class="label">{{$t('m.ladiesWatch')}}</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
           <div @click="link('/promotion')" class="shop-cell">
@@ -32,7 +32,7 @@
             <span class="iconfont icon-jiahao"></span>
           </div>
           <div @click="link('/cart')" class="shop-cell">
-            <span class="label">订单详情</span>
+            <span class="label">{{$t('m.orderDetails')}}</span>
             <span class="iconfont icon-jiahao"></span>
           </div>
         </div>

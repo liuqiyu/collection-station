@@ -4,7 +4,7 @@
       <img src="./images/sale-bg.png" alt="">
     </div>
     <div class="cloker">
-      <span class="label">倒计时：</span>
+      <span class="label">{{$t('m.countdown')}}：</span>
       <clocker time="2018-08-08">
         <!--<span class="day">%_D1</span>-->
         <!--<span class="day">%_D2</span>-->
@@ -31,12 +31,12 @@
           <div class="old-pricer">{{item.oldPrice}}</div>
           <div class="bottom clearfix">
             <div class="stock">
-              <p>{{item.stock}}剩余库存</p>
+              <p>{{item.stock}}{{$t('m.surplusStock')}}</p>
               <p class="progress">
                 <x-progress :percent="item.percent" :show-cancel="false"></x-progress>
               </p>
             </div>
-            <div class="btn" @click="panicBuying(item)">点击抢购</div>
+            <div class="btn" @click="panicBuying(item)">{{$t('m.clickAndBuyItNow')}}</div>
           </div>
         </div>
       </div>

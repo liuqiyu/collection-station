@@ -1,6 +1,20 @@
 <template>
   <div class="cart" :style="{height: height + 'px'}">
-    <div class="cart-list-wrap">
+    <!-- 购物车为空 -->
+    <div class="no-cart-data" v-if="!isHasCart">
+      <div class="no-cart-data-img">
+        <img src="./images/no-cart-data.png" alt="">
+      </div>
+      <div class="no-cart-data-txt">购物车无内容</div>
+      <div class="a-pro">
+        <div class="add-bg">
+          <img src="./images/bg.png" alt="">
+        </div>
+        <span class="btn" @click="addProducts">去购买</span>
+      </div>
+    </div>
+
+    <div class="cart-list-wrap" v-if="isHasCart">
       <div class="cart-list">
         <div class="cart-item" v-for="(item, index) in cartData" :key="index">
           <div class="cart-img">
@@ -24,30 +38,32 @@
         <div class="add-bg">
           <img src="./images/bg.png" alt="">
         </div>
-        <span class="btn" @click="addProducts">继续添加商品</span>
+        <div class="btn-wp">
+          <span class="btn" @click="addProducts">{{$t('m.addMoreProduct')}}</span>
+        </div>
       </div>
     </div>
-    <div class="cart-bottom">
+    <div class="cart-bottom" v-if="isHasCart">
       <div class="cart-data">
         <div class="data-item">
-          <span class="label">数量</span>
+          <span class="label">{{$t('m.quantity')}}</span>
           <span class="value">1</span>
         </div>
         <div class="data-item">
-          <span class="label">折扣</span>
+          <span class="label">{{$t('m.discount')}}</span>
           <span class="value">-$149</span>
         </div>
         <div class="data-item">
-          <span class="label">含税</span>
+          <span class="label">{{$t('m.taxInclusive')}}</span>
           <span class="value">$195</span>
         </div>
         <div class="data-item">
-          <span class="label">累计</span>
+          <span class="label">{{$t('m.grandTotal')}}</span>
           <span class="value">$1369</span>
         </div>
       </div>
       <div class="cart-btn">
-        <span @click="checkout">前往结账</span>
+        <span @click="checkout">{{$t('m.goToCheckOut')}}</span>
       </div>
     </div>
     <confirm v-model="show"
@@ -80,6 +96,7 @@ export default {
   computed: {
     ...mapState({
       cartData: state => state.cart.cartData,
+      isHasCart: state => state.cart.isHasCart,
     }),
   },
   mounted() {
@@ -230,19 +247,24 @@ export default {
     width: 100%;
   }
 
-  .a-pro .btn {
+  .btn-wp {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -0.18rem;
-    margin-left: -0.54rem;
-    display: block;
-    width: 1.08rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+  }
+
+  .a-pro .btn {
+    display: inline-block;
     height: 0.37rem;
+    padding: 0 0.1rem;
     text-align: center;
     line-height: 0.35rem;
     border: 2px solid #000;
     z-index: 88;
+    margin-top: 0.1rem;
   }
 
   .cart-bottom {
@@ -289,5 +311,44 @@ export default {
     height: 0.41rem;
     text-align: center;
     line-height: 0.41rem;
+  }
+
+  .no-cart-data {
+    padding-top: 1rem;
+  }
+
+  .no-cart-data-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 auto;
+  }
+
+  .no-cart-data-img > img {
+    width: 100%;
+  }
+
+  .no-cart-data-txt {
+    text-align: center;
+    font-size: 0.16rem;
+    color: #666;
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+    font-family: 'item';
+    letter-spacing: 0.02rem;
+  }
+
+  .no-cart-data-btn {
+    width: 100%;
+  }
+
+  .no-cart-data-btn span {
+    display: block;
+    width: 1.08rem;
+    height: 0.37rem;
+    text-align: center;
+    line-height: 0.35rem;
+    border: 2px solid #000;
+    z-index: 88;
+    margin: 0 auto;
   }
 </style>

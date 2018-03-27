@@ -8,6 +8,8 @@ import actions from './actions';
 const state = {
   cartData: [],
   promotionData: [],
+  // 购物车是否有商品
+  isHasCart: false,
 };
 
 export default {

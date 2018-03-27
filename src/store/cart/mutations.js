@@ -2,15 +2,20 @@
  * mutations
  * create by lqy 2018/3/22
  */
-import { GET_CART_DATA, GET_PROMOTION_DATA, ADD_CART, DELETE_CART_PRO } from './mutation-types';
+import { GET_CART_DATA,
+  GET_PROMOTION_DATA,
+  ADD_CART,
+  DELETE_CART_PRO } from './mutation-types';
 
 const mutations = {
   // 获取购物车商品
   [GET_CART_DATA](state) {
     if (sessionStorage.getItem('cartData')) {
       state.cartData = JSON.parse(sessionStorage.getItem('cartData'));
+      state.isHasCart = true;
     } else {
       state.cartData = [];
+      state.isHasCart = false;
     }
   },
   // 获取折扣商品信息

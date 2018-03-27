@@ -7,18 +7,20 @@
       <div class="view-culomn" :style="{ top: this.$store.state.main.homeCulomnTop}">
         <div class="view-culomn-item item-left">
           <div class="view-culomn-col">
-            <span class="v-btn" @click="showProducts('male')">Men's wristwatch</span>
+            <span class="v-btn" @click="showProducts('male')">{{$t('m.menWatch')}}</span>
           </div>
           <div class="view-culomn-col">
-            <span class="v-btn" @click="showProducts('female')">Women's wristwatch</span>
+            <span class="v-btn" @click="showProducts('female')">{{$t('m.ladiesWatch')}}</span>
           </div>
         </div>
         <div class="view-culomn-item item-right">
           <div class="view-culomn-col">
-            <span class="v-btn" @click="showProducts('intelligence')">Intelligent style</span>
+            <span class="v-btn" @click="showProducts('intelligence')">{{$t('m.smartWatch')}}</span>
           </div>
           <div class="view-culomn-col">
-            <span class="v-btn" @click="showProducts('recommendation')">New recommendation</span>
+            <span class="v-btn" @click="showProducts('recommendation')">
+              {{$t('m.newProducts')}}
+            </span>
           </div>
         </div>
       </div>

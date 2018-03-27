@@ -6,29 +6,29 @@
         <span class="icon">
           <img src="./images/buy-success.png" alt="">
         </span>
-        <span class="text">下单成功!</span>
+        <span class="text">{{$t('m.checkoutSuccess')}}!</span>
       </div>
       <div class="price">
-        合计：
+        {{$t('m.total')}}：
         <span class="number">$1099</span>
       </div>
       <div class="hint">
-        <p>恭喜，成功提交订单。</p>
-        <p>我们已收到您的订单，您的头发将尽快发送给宝宝。</p>
+        <p>{{$t('m.bravoSuccessfullyOrdered')}}</p>
+        <p>{{$t('m.theOrderGoodsAreHeadingToYou')}}</p>
       </div>
       <div class="btn-group">
         <flexbox :gutter="10">
           <flexbox-item>
-            <div class="btn customer-server" @click="customerServer">客服服务</div>
+            <div class="btn customer-server" @click="customerServer">{{$t('m.customerService')}}</div>
           </flexbox-item>
           <flexbox-item>
-            <div class="btn show-order" @click="showOrder">查看订单</div>
+            <div class="btn show-order" @click="showOrder">{{$t('m.viewOrder')}}</div>
           </flexbox-item>
         </flexbox>
       </div>
       <div class="line"></div>
       <div class="bottom-prompt">
-        提示：我们已收到您的订单，您的头发将尽快发送给宝宝。我们已收到您的订单，您的头发将尽快发送给宝宝。我们已收到您的订单，您的头发将尽快发送给宝宝。
+        {{$t('m.warningTips')}}
       </div>
     </div>
   </div>
@@ -44,10 +44,10 @@ export default {
     Flexbox,
     FlexboxItem,
   },
-  data() {
-    return {
-      title: '付款详情',
-    };
+  computed: {
+    title() {
+      return this.$t('m.paymentDetails');
+    }
   },
   methods: {
     customerServer() {

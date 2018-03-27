@@ -1,21 +1,32 @@
-# collection-station
+# watch shopping
 
-> A Vue.js project
+一个专卖手表的网站
 
-## Build Setup
+> 移动版本
 
-``` bash
-# install dependencies
-npm install
+### 技术栈
 
-# serve with hot reload at localhost:8080
+`vue2` `vuex` `vux` `vue-router` `axios` `es6` `vue-i18n` `better-scroll` `webpack`
+
+### 安装使用
+
+```
+git clone https://github.com/liuqiyu/collection-station.git
+
+npm i 
+
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 内容
+
+公司开发的一个电子商务项目，一个专门买手表的网站。
+
+
+#### 结构
+
+
+#### 预览
+[地址](https://liuqiyu.github.io/collection-station/dist/#/home)
+
+

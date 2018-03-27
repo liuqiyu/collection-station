@@ -1,10 +1,10 @@
 <template>
   <div class="address" :style="{height: height + 'px'}">
     <div class="address-wrap">
-      <div class="title">结账</div>
+      <div class="title">{{$t('m.checkOut')}}</div>
       <div class="total" v-if="showTotalPrice">
         <group>
-          <cell class="red-color" title="金额：" :is-loading="!money" :value="money"></cell>
+          <cell class="red-color" :title="$t('m.commodityPrice')" :is-loading="!money" :value="money"></cell>
         </group>
       </div>
       <div class="cart-list" v-if="!showTotalPrice">
@@ -24,19 +24,19 @@
           </div>
         </div>
       </div>
-      <group title="您的地址" title-color="#000">
-        <x-input title="地址" placeholder="" v-model="address"></x-input>
-        <x-input title="姓名" placeholder="" v-model="username"></x-input>
-        <x-input title="邮编" placeholder="" v-model="zipcode"></x-input>
-        <x-input title="电话" placeholder="" v-model="phone"></x-input>
-        <x-input title="邮箱" placeholder="" v-model="email"></x-input>
-        <x-textarea title="备注" v-model="content"></x-textarea>
-        <x-switch title="货到付款" disabled :value="cashOnDelivery"></x-switch>
+      <group :title="$t('m.yourAddress')" title-color="#000">
+        <x-input :title="$t('m.Address')" placeholder="" v-model="address"></x-input>
+        <x-input :title="$t('m.name')" placeholder="" v-model="username"></x-input>
+        <x-input :title="$t('m.postCode')" placeholder="" v-model="zipcode"></x-input>
+        <x-input :title="$t('m.phoneNumber')" placeholder="" v-model="phone"></x-input>
+        <x-input :title="$t('m.emailAddress')" placeholder="" v-model="email"></x-input>
+        <x-textarea :title="$t('m.note')" v-model="content"></x-textarea>
+        <x-switch :title="$t('m.cashOnDelivery')" disabled :value="cashOnDelivery"></x-switch>
       </group>
     </div>
     <div class="cart-bottom">
       <div class="cart-btn">
-        <span @click="submitOrder">提交订单</span>
+        <span @click="submitOrder">{{$t('m.submitOrder')}}</span>
       </div>
     </div>
   </div>

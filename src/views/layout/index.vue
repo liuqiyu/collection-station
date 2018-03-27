@@ -14,6 +14,7 @@
         @on-focus="onFocus"
         @on-cancel="onCancel"
         @on-submit="onSubmit"
+      :placeholder="placeholder"
         ref="search"></search>
     <div class="wrapper-scroll" style="height: 100%">
       <div>
@@ -49,15 +50,18 @@ function getResult(val) {
 export default {
   mounted() {
     const wrapper = document.querySelector('.wrapper-scroll');
-    wrapper.onclick = () => {
+    // 绑定点击事件
+    wrapper.addEventListener('click', () => {
       this.SHOWSEARCH(false);
       this.CLOSE_MENU();
-    };
+    });
+    // 创建滚动实例
     this.scroll = new BScroll(wrapper, {
       click: true,
       scrollY: true,
       probeType: 3,
     });
+    // 监听滚动事件
     this.scroll.on('scroll', () => {
       this.HOME_SHOW_MORE(false);
       // 下拉动作
@@ -71,6 +75,15 @@ export default {
     });
     this.GET_CART_DATA();
   },
+  beforeDestroy() {
+    // 解绑点击事件
+    const wrapper = document.querySelector('.wrapper-scroll');
+    wrapper.removeEventListener('click', () => {
+      this.SHOWSEARCH(false);
+      this.CLOSE_MENU();
+    });
+    this.scroll.destroy();
+  },
   data() {
     return {
       scroll: null,
@@ -81,8 +94,14 @@ export default {
   watch: {
     '$route'() {
       this.GET_CART_DATA();
-
+      this.CLOSE_MENU();
+      this.SHOWSEARCH(false);
     },
+  },
+  computed: {
+    placeholder() {
+      return this.$t('m.search')
+    }
   },
   components: {
     topbar,
@@ -96,9 +115,9 @@ export default {
       'HOME_SHOW_MORE',
       'CLOSE_MENU',
     ]),
-    change(lang) {
-      switch (lang) {
-        case 'ch':
+    change() {
+      switch (this.value1) {
+        case 'cn':
           this.$i18n.locale = 'zh-CN';
           break;
         case 'en':
